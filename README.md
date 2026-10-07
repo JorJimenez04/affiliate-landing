@@ -1,4 +1,5 @@
 # affiliate-landing
+<<<<<<< HEAD
 
 Landing page de afiliación 18+ construida con Next.js 14 (App Router) + TypeScript + Tailwind CSS.
 Optimizada mobile-first para máxima velocidad y conversión.
@@ -60,3 +61,6 @@ vercel            # sigue el flujo interactivo
 
 O importa el repositorio directamente desde [vercel.com/new](https://vercel.com/new)
 — Next.js se detecta automáticamente, no requiere configuración adicional.
+=======
+Sitio web sobre salud, bienestar, recomendaciones sobre los beneficios de las plantas y los vegetales.
+>>>>>>> 5b21aeb0ac6bc9fb0757afd641547f8ac2b2123f
