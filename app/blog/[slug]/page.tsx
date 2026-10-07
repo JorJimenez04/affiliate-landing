@@ -31,7 +31,9 @@ export default async function ArticlePage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-emerald-600"></span>
-            <span className="font-bold text-lg text-slate-900 tracking-tight">VITALIS & WELLNESS</span>
+            <span className="font-bold text-lg text-slate-900 tracking-tight">
+              Get<span className="text-emerald-600">Green</span>Routine
+            </span>
           </Link>
           <Link href="/" className="text-sm font-medium text-emerald-600 hover:underline">
             ← Back to Home
@@ -101,6 +103,15 @@ export default async function ArticlePage({ params }: PageProps) {
             affiliateUrl="https://amazon.com?tag=your-affiliate-tag-20"
             badge="What I'm Loving Right Now"
           />
+
+          {/* Adsterra (or similar network) slot — replace scriptSrc/containerId with your real invoke keys */}
+          <BannerAd
+            network={{
+              scriptSrc: '//REPLACE_WITH_YOUR_ADSTERRA_INVOKE_URL/invoke.js',
+              containerId: 'container-replace-with-your-adsterra-key',
+              height: 250,
+            }}
+          />
         </div>
 
         {article.recommendations && article.recommendations.length > 0 && (
@@ -123,7 +134,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
       <footer className="bg-white border-t border-slate-200 py-8 px-6 mt-20 text-center text-xs text-slate-500">
         <div className="max-w-4xl mx-auto space-y-3">
-          <p>© 2026 Vitalis & Wellness. Thanks for reading — everything here comes from genuine trial, error, and way too much tea. 🍵</p>
+          <p>© 2026 GetGreenRoutine. Thanks for reading — everything here comes from genuine trial, error, and way too much tea. 🍵</p>
           <p className="max-w-2xl mx-auto text-slate-400">
             <strong>Just so you know:</strong> some links on this site are affiliate links, and I may earn a small commission if you buy through them, at no extra cost to you. I only share things I'd genuinely recommend to a friend.
           </p>

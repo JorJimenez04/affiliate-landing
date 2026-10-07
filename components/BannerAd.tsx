@@ -1,4 +1,7 @@
-interface BannerAdProps {
+import AdSlot, { AdNetworkSlot } from './AdSlot';
+
+interface AffiliateBannerAdProps {
+  network?: undefined;
   title: string;
   description: string;
   ctaText: string;
@@ -6,7 +9,32 @@ interface BannerAdProps {
   badge?: string;
 }
 
-export default function BannerAd({ title, description, ctaText, affiliateUrl, badge = "Sponsored Recommendation" }: BannerAdProps) {
+interface NetworkBannerAdProps {
+  /** Config del script del network de anuncios (Adsterra, etc.) a inyectar en este slot */
+  network: AdNetworkSlot;
+  badge?: string;
+}
+
+type BannerAdProps = AffiliateBannerAdProps | NetworkBannerAdProps;
+
+export default function BannerAd(props: BannerAdProps) {
+  if (props.network) {
+    const { network, badge = 'Advertisement' } = props;
+    return (
+      <div className="my-8 rounded-2xl border border-emerald-500/30 bg-slate-900 overflow-hidden shadow-lg">
+        <div className="flex items-center justify-between px-5 py-2.5 bg-slate-900/80 border-b border-slate-700/60">
+          <span className="text-[10px] uppercase tracking-wider font-semibold text-emerald-300">{badge}</span>
+          <span className="text-[10px] text-slate-500">Ads keep GetGreenRoutine free</span>
+        </div>
+        <div className="flex items-center justify-center p-4">
+          <AdSlot {...network} className="w-full flex items-center justify-center" />
+        </div>
+      </div>
+    );
+  }
+
+  const { title, description, ctaText, affiliateUrl, badge = 'Sponsored Recommendation' } = props;
+
   return (
     <div className="my-8 p-6 bg-gradient-to-r from-emerald-900 to-slate-900 rounded-2xl text-white shadow-lg border border-emerald-500/30">
       <div className="flex items-center justify-between mb-3">

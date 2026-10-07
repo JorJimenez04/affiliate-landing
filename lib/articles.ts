@@ -181,5 +181,122 @@ export const ARTICLES: Article[] = [
         badge: "Unexpected MVP"
       }
     ]
+  },
+  {
+    slug: "turmeric-ginger-immunity-tonic-recipe",
+    title: "The 5-Minute Turmeric-Ginger Tonic I Make Every Single Morning",
+    excerpt: "A simple root-and-spice tonic rooted in traditional herbal medicine, plus the one practical science tweak that actually makes it work better.",
+    category: "Plant-Based Recipes 🍲",
+    readTime: "4 min read",
+    publishedAt: "October 2026",
+    author: {
+      name: "Elena Ross",
+      role: "Herbalist & Recipe Developer",
+      bio: "Trained in traditional phytotherapy, but I live in a real kitchen with a real blender, not an apothecary. My rule: if a remedy takes more than five minutes or six ingredients, I won't actually make it twice — so that's the bar for everything I publish."
+    },
+    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=1000",
+    content: {
+      introduction: "Turmeric and ginger have been paired in traditional herbal medicine for centuries, long before \"anti-inflammatory\" was a wellness buzzword. I started making this tonic during a particularly rough cold season, and it's quietly become the one ritual I never skip — mostly because it takes less time than waiting for my coffee to brew.",
+      sections: [
+        {
+          heading: "1. The Base: Fresh Root, Not Just Powder 🌱",
+          body: [
+            "I use a thumb-sized piece of fresh turmeric root and a similar amount of ginger, grated straight into a small pot of water. Powder works in a pinch, but fresh root gives a noticeably brighter, less dusty flavor — and it's what traditional preparations actually call for.",
+            "I let it simmer gently for about 8-10 minutes. Any longer and the ginger turns bitter; any shorter and it tastes like warm water with regrets."
+          ],
+          tip: "Add a crack of black pepper at the end — the piperine in it measurably increases how much curcumin (turmeric's active compound) your body actually absorbs. This single tweak is the difference between 'nice tea' and the tonic actually doing something."
+        },
+        {
+          heading: "2. A Spoon of Raw Honey, Off the Heat",
+          body: [
+            "I stir honey in only after straining and removing the pot from heat — boiling honey breaks down some of its natural enzymes, so adding it at the end keeps more of its soothing properties intact for sore throats.",
+          ]
+        },
+        {
+          heading: "3. Batch It Once, Drink It All Week",
+          body: [
+            "On Sundays I make a concentrated version — double the root, half the water — and keep it in the fridge. Each morning I just dilute a splash with hot water instead of grating everything from scratch daily."
+          ]
+        }
+      ],
+      conclusion: "This isn't a cure for anything, and I'm not pretending it replaces a real diet or sleep. But as a five-minute ritual rooted in genuinely old herbal practice, it's earned a permanent spot on my stove — and my immune system hasn't complained either."
+    },
+    recommendations: [
+      {
+        id: "rec-5",
+        name: "Organic Fresh Turmeric & Ginger Root Combo Pack",
+        description: "Having both roots on hand without a weekly produce-aisle hunt is the only reason I still make this consistently. Keeps well in the fridge for the whole batch-cooking week.",
+        priceEstimate: "$18.99",
+        rating: 4.7,
+        affiliateUrl: "https://amazon.com/dp/EXAMPLE5?tag=your-affiliate-tag-20",
+        badge: "Weekly Staple"
+      },
+      {
+        id: "rec-6",
+        name: "Fine Microplane Grater for Roots & Spices",
+        description: "A regular grater turned this into a 15-minute chore. This one shreds the root in seconds and is genuinely dishwasher-safe, which matters more than I expected on a Monday morning.",
+        priceEstimate: "$14.50",
+        rating: 4.8,
+        affiliateUrl: "https://amazon.com/dp/EXAMPLE6?tag=your-affiliate-tag-20"
+      }
+    ]
+  },
+  {
+    slug: "natural-post-workout-recovery-herbs",
+    title: "I Swapped My Ibuprofen Habit for These 3 Plant-Based Recovery Tricks",
+    excerpt: "Three practical, low-effort swaps rooted in traditional phytotherapy that actually changed how sore I feel the day after training.",
+    category: "Active Recovery 🏃",
+    readTime: "5 min read",
+    publishedAt: "October 2026",
+    author: {
+      name: "Marcus Oyelaran",
+      role: "Strength Coach & Natural Recovery Writer",
+      bio: "I coach lifters for a living and used to reach for ibuprofen like it was a pre-workout supplement. A nagging stomach issue forced me to find other ways to manage soreness — these are the three that actually stuck, backed by both old herbal practice and the newer research on them."
+    },
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000",
+    content: {
+      introduction: "Popping ibuprofen after every leg day felt normal for years, until it wasn't doing my stomach any favors. Turns out a few plant-based tools — some used in traditional medicine for centuries, now with actual research behind them — cover a surprising amount of what I was using painkillers for.",
+      sections: [
+        {
+          heading: "1. Topical Arnica Montana Gel for Localized Soreness",
+          body: [
+            "Arnica has been used topically in European folk medicine for bruising and muscle pain for generations. I rub it into whatever muscle group took the worst beating within an hour of training, and the next-day stiffness is noticeably less sharp — especially on heavy lower-body days."
+          ],
+          tip: "Never take arnica orally unless it's a diluted homeopathic prep made for that — the raw plant is for topical use only."
+        },
+        {
+          heading: "2. Tart Cherry Extract the Night Before a Hard Session",
+          body: [
+            "Tart cherries are naturally high in anthocyanins, and a concentrate taken the evening before an intense session has made my soreness the following day feel noticeably more manageable — this is one of the few folk remedies with a decent stack of actual sports-science studies behind it."
+          ]
+        },
+        {
+          heading: "3. A Warm Magnesium & Lavender Soak",
+          body: [
+            "Twenty minutes in a warm bath with magnesium flakes and a few drops of lavender oil has become my non-negotiable Sunday ritual after a heavy training week. Whether it's the magnesium, the warmth, or just forcing myself to sit still for once, my legs feel distinctly less wrecked by Monday."
+          ]
+        }
+      ],
+      conclusion: "None of this replaces proper programming, sleep, or a doctor's advice if something actually hurts versus just feeling worked. But trading my reflexive ibuprofen habit for these three plant-based tools has made recovery feel like something I'm actively doing, not just waiting out."
+    },
+    recommendations: [
+      {
+        id: "rec-7",
+        name: "Topical Arnica Montana Recovery Gel",
+        description: "This is the exact tube in my gym bag. A little goes a long way, and it doesn't leave the greasy residue some of the cheaper balms do.",
+        priceEstimate: "$12.99",
+        rating: 4.6,
+        affiliateUrl: "https://amazon.com/dp/EXAMPLE7?tag=your-affiliate-tag-20",
+        badge: "Gym Bag Staple"
+      },
+      {
+        id: "rec-8",
+        name: "Concentrated Tart Cherry Extract Capsules",
+        description: "I take two of these the night before a heavy session. Easier to keep consistent than brewing tart cherry juice from concentrate every time.",
+        priceEstimate: "$22.00",
+        rating: 4.5,
+        affiliateUrl: "https://amazon.com/dp/EXAMPLE8?tag=your-affiliate-tag-20"
+      }
+    ]
   }
 ];

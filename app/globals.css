@@ -1,22 +1,5 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-neon-pink: #ff2d78;
-  --color-neon-purple: #a742ff;
-  --color-neon-blue: #2dc8ff;
-  --color-neon-emerald: #2dffb0;
-}
-
-@keyframes pulse-live {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
 @keyframes fade-up {
   0% {
     opacity: 0;
@@ -26,10 +9,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-pulse-live {
-  animation: pulse-live 1.6s ease-in-out infinite;
 }
 
 .animate-fade-up {
@@ -42,5 +21,5 @@ html {
 }
 
 body {
-  background-color: #020617;
+  background-color: #f8fafc;
 }
