@@ -33,6 +33,10 @@ export interface Article {
   recommendations: ProductRecommendation[];
 }
 
+// Editorial guidelines for GetGreenRoutine (all-ages, friendly tone — keep this for every article, current or new):
+// - Talk to the reader like a close friend sharing a tip, never clinical/medical language or Latin plant names.
+// - Short paragraphs, clear headings, and a quick `tip` per section so it reads easily on mobile.
+// - Stay practical: how does this plant or habit actually help with sleep, energy, or everyday calm?
 export const ARTICLES: Article[] = [
   {
     slug: "5-natural-herbal-teas-better-sleep",
@@ -209,7 +213,7 @@ export const ARTICLES: Article[] = [
         {
           heading: "2. A Spoon of Raw Honey, Off the Heat",
           body: [
-            "I stir honey in only after straining and removing the pot from heat — boiling honey breaks down some of its natural enzymes, so adding it at the end keeps more of its soothing properties intact for sore throats.",
+            "I stir honey in only after straining and removing the pot from heat — boiling honey breaks down some of its natural enzymes, so adding it at the end keeps more of its soothing properties intact for sore throats."
           ]
         },
         {
@@ -296,6 +300,96 @@ export const ARTICLES: Article[] = [
         priceEstimate: "$22.00",
         rating: 4.5,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE8?tag=your-affiliate-tag-20"
+      }
+    ]
+  },
+  {
+    slug: "chamomile-tea-after-meals-digestion",
+    title: "Why Chamomile Water After Meals Is My Favorite Secret for Heavy Stomachs",
+    excerpt: "The after-dinner ritual I stole straight from my grandmother's kitchen — a warm cup of chamomile that takes the heavy, bloated feeling away without any harsh antacids.",
+    category: "Digestive Rituals 🍵",
+    readTime: "4 min read",
+    publishedAt: "October 2026",
+    author: {
+      name: "Sophia Vance",
+      role: "Holistic Living & Botanical Enthusiast",
+      bio: "I've been obsessed with herbal remedies since my grandmother's kitchen smelled like chamomile every winter."
+    },
+    image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=1000",
+    content: {
+      introduction: "We've all been there: you finish a big dinner and that heavy, sluggish feeling creeps in before you've even left the table. Instead of reaching for the antacids, I picked up a trick straight from my grandmother's kitchen — a warm cup of chamomile right after eating.",
+      sections: [
+        {
+          heading: "1. Why a Warm Cup Works So Well 🌼",
+          body: [
+            "Chamomile has been a go-to in grandmothers' kitchens for generations, and it's not just an old wives' tale — the warm infusion gently calms your stomach and helps your body process a heavy meal instead of just sitting there like a brick.",
+            "I started drinking it after dinner mostly out of curiosity, but a few weeks in I noticed I wasn't waking up feeling bloated anymore. Small change, surprisingly big difference."
+          ],
+          tip: "Cover your mug while it steeps for 5 to 7 minutes — that keeps the good stuff from drifting off with the steam. Then sip it slowly about 15 minutes after you eat, not ice cold and not rushed."
+        },
+        {
+          heading: "2. Make It Part of Your Wind-Down, Not a Chore",
+          body: [
+            "I keep a tin of loose chamomile right next to the kettle so there's zero excuse to skip it. It's become less of \"a remedy\" and more of a cozy five-minute pause at the end of dinner — which honestly might be half of why it works so well."
+          ]
+        }
+      ],
+      conclusion: "This isn't going to undo a giant plate of pasta, and some nights even tea doesn't fully save me. But swapping the after-dinner antacid reach for a warm cup of chamomile has made heavy dinners so much easier to handle — and mornings noticeably lighter too."
+    },
+    recommendations: [
+      {
+        id: "rec-9",
+        name: "Organic Whole Flower Chamomile Tin",
+        description: "This is the tin I keep parked right next to my kettle. Whole flowers instead of dust-in-a-bag, and the aroma alone makes the after-dinner ritual feel like an actual treat instead of a chore.",
+        priceEstimate: "$14.99",
+        rating: 4.8,
+        affiliateUrl: "https://amazon.com/dp/EXAMPLE-CHAMOMILE?tag=your-affiliate-tag-20",
+        badge: "Digestive Favorite"
+      }
+    ]
+  },
+  {
+    slug: "garlic-traditional-herbal-remedies-blood-digestion",
+    title: "Why Traditional Herbalists Called Garlic 'The Kitchen Pharmacy'",
+    excerpt: "The kitchen staple my grandmother swore by for everything from a stuffy nose to a sluggish stomach — and the ridiculously simple way she actually used it.",
+    category: "Plant-Based Remedies 🧄",
+    readTime: "5 min read",
+    publishedAt: "October 2026",
+    author: {
+      name: "Sophia Vance",
+      role: "Holistic Living & Botanical Enthusiast",
+      bio: "Exploring traditional herbal practices and translating classic remedies into simple daily routines for modern living."
+    },
+    image: "/images/garlic-elixir.jpg",
+    content: {
+      introduction: "Long before pharmacies were on every corner, most households just reached for what was already in the kitchen. In my family, that meant garlic — my grandmother treated it like a cure-all, from a heavy stomach after dinner to the first sniffle of a cold. Turns out, traditional herbalists have leaned on it the exact same way for centuries.",
+      sections: [
+        {
+          heading: "1. The Everyday Digestive Helper 🧄",
+          body: [
+            "The trick is ridiculously simple: raw garlic, finely chopped, mixed straight into your food. No fancy prep, no capsules — just a clove worked into whatever you're already cooking.",
+            "My grandmother always said it \"wakes up\" a heavy stomach after a big meal, and whether that's old folklore or not, I notice a lot less of that sluggish, overfull feeling when I actually remember to add it."
+          ],
+          tip: "Chop or crush your garlic and let it sit for about 10 minutes before eating — that little pause is apparently when it does its best work, according to how it's traditionally prepared."
+        },
+        {
+          heading: "2. The Go-To for Scratchy Throats and Stuffy Noses",
+          body: [
+            "Come cold season, a warm garlic broth was non-negotiable growing up. It won't replace a doctor's advice, but there's something genuinely comforting about a warm, savory broth when your chest feels tight and your nose won't stop running."
+          ]
+        }
+      ],
+      conclusion: "Science is still catching up to a lot of what grandmothers have known forever, but keeping a simple ingredient like garlic in daily rotation is such an easy way to borrow a little old-school wisdom — no pharmacy trip required."
+    },
+    recommendations: [
+      {
+        id: "rec-garlic-1",
+        name: "Stainless Steel Garlic Press & Mincer",
+        description: "The easiest way to prepare fresh garlic for your daily cooking and remedies without the mess on your hands.",
+        priceEstimate: "$15.99",
+        rating: 4.8,
+        affiliateUrl: "https://amazon.com/dp/EXAMPLE-GARLIC?tag=your-affiliate-tag-20",
+        badge: "Kitchen Essential"
       }
     ]
   }

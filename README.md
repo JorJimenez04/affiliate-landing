@@ -1,49 +1,40 @@
-# affiliate-landing
-<<<<<<< HEAD
+# affiliate-landing — GetGreenRoutine
 
-Landing page de afiliación 18+ construida con Next.js 14 (App Router) + TypeScript + Tailwind CSS.
-Optimizada mobile-first para máxima velocidad y conversión.
+Blog editorial de afiliación sobre fitoterapia tradicional, hábitos diarios y bienestar natural, marca **GetGreenRoutine**. Apto para todas las edades. Construido con Next.js (App Router) + TypeScript + Tailwind CSS v4.
 
 ## Estructura
 
 ```
 app/
-  layout.tsx       Metadata, viewport, fuente del sistema (sin descargas de fuentes)
-  page.tsx         Página principal: hero, grid de ofertas, footer
-  globals.css      Tailwind
+  layout.tsx       Metadata SEO, viewport y layout raíz (<html>/<body>)
+  page.tsx         Home: hero + feed de artículos + sidebar + anuncios
+  globals.css       Tailwind v4 + theme de colores
+  blog/[slug]/
+    page.tsx        Página de artículo individual (contenido + recomendaciones de producto)
 components/
-  LiveHeader.tsx   Indicador "EN VIVO" + contador animado
-  OfferCard.tsx    Tarjeta de oferta del catálogo
-  StickyCTA.tsx    Barra flotante inferior (anti-fuga de tráfico)
+  AdSlot.tsx                Inyección aislada de scripts de networks de ads (Adsterra, etc.)
+  AffiliateDisclosureBox.tsx  Aviso de transparencia de enlaces de afiliado
+  AuthorBioBox.tsx          Bio del autor al final de cada artículo
+  BannerAd.tsx              Banner de anuncio (CTA manual o modo network)
+  NativeAdCard.tsx          Tarjeta "Sponsored" en el feed
+  ProductAffiliateCard.tsx  Tarjeta de producto recomendado
+  StickyMobileCTA.tsx       Barra flotante inferior en móvil
+  TrendingList.tsx          Lista "Lo más leído" en la sidebar
 lib/
-  offers.ts        ⭐ Fuente única de todas las ofertas y enlaces de afiliado
-  tracking.ts       Disparo de eventos de click (GA4 / Meta Pixel, opcional)
+  articles.ts       ⭐ Fuente única de verdad del contenido editorial
+  offers.ts          Catálogo de ofertas/afiliados auxiliares
+  tracking.ts        Disparo de eventos de click (GA4 / Meta Pixel, opcional)
 ```
 
-## Editar ofertas y enlaces
+## Editar artículos
 
-Todo se controla desde [`lib/offers.ts`](lib/offers.ts). Cada oferta tiene:
+Todo el contenido vive en [`lib/articles.ts`](lib/articles.ts). Cada `Article` incluye slug, metadata, autor, cuerpo por secciones (con `tip` opcional) y un array `recommendations` con sus propios enlaces de afiliado.
 
-- `baseUrl`: tu enlace de tracking (Stripchat/camsk5, CrakRevenue, etc.)
-- `networkSubIdParam` (opcional): si quieres que el sub-id de posición se
-  envíe usando el parámetro propio de la red (ej. `subid1` en CrakRevenue).
-  Si lo dejas vacío, se añade un parámetro `subid` propio sin tocar los
-  parámetros de afiliado que ya tenga la URL.
+Línea editorial a mantener en todo artículo nuevo (ver comentario al inicio del archivo): tono cercano y conversacional (de tú a tú, sin lenguaje clínico ni tecnicismos), párrafos cortos y fáciles de leer en móvil, y enfoque práctico en cómo ayuda cada hábito o planta en el día a día.
 
-Cada botón añade automáticamente un sub-id distinto según su posición
-(`mobile_grid_top`, `hero_main_cta`, `sticky_bar_bottom`, etc.) para que
-puedas medir en tu panel de afiliado qué ubicación convierte mejor.
+## Imágenes
 
-⚠️ La oferta `vip-smartlink` trae una URL de ejemplo
-(`REPLACE_WITH_YOUR_SMARTLINK_ID`) — reemplázala por tu smartlink real de
-CrakRevenue antes de publicar.
-
-## Imágenes de previsualización
-
-Las tarjetas usan iconos/emoji como placeholder en lugar de imágenes reales
-(no se incluyen imágenes explícitas en el repo). Para usar tus propias
-miniaturas, sustituye el bloque de icono en `components/OfferCard.tsx` por
-`next/image` apuntando a tus assets en `public/`.
+Los artículos usan imágenes remotas de Unsplash como placeholder. Para usar assets propios, colócalos en `public/` y referencia la ruta (ej. `/images/mi-imagen.jpg`) en el campo `image` del artículo.
 
 ## Desarrollo local
 
@@ -52,15 +43,18 @@ npm install
 npm run dev
 ```
 
-## Deploy en Vercel
+## Build y despliegue
+
+```bash
+npm run build
+npm run start
+```
+
+### Vercel
 
 ```bash
 npm i -g vercel   # si no lo tienes
 vercel            # sigue el flujo interactivo
 ```
 
-O importa el repositorio directamente desde [vercel.com/new](https://vercel.com/new)
-— Next.js se detecta automáticamente, no requiere configuración adicional.
-=======
-Sitio web sobre salud, bienestar, recomendaciones sobre los beneficios de las plantas y los vegetales.
->>>>>>> 5b21aeb0ac6bc9fb0757afd641547f8ac2b2123f
+O importa el repositorio directamente desde [vercel.com/new](https://vercel.com/new) — Next.js se detecta automáticamente, sin configuración adicional.
