@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ARTICLES } from '@/lib/articles';
+import { siteConfig } from '@/lib/site.config';
 import ProductAffiliateCard from '@/components/ProductAffiliateCard';
 import BannerAd from '@/components/BannerAd';
 import AuthorBioBox from '@/components/AuthorBioBox';
@@ -11,10 +13,33 @@ interface PageProps {
   }>;
 }
 
+const ADSTERRA_SLOT = {
+  scriptSrc: process.env.NEXT_PUBLIC_ADSTERRA_SCRIPT_SRC ?? '',
+  containerId: process.env.NEXT_PUBLIC_ADSTERRA_CONTAINER_ID ?? 'ggr-adsterra-article',
+  height: 250,
+};
+
 export async function generateStaticParams() {
   return ARTICLES.map((article) => ({
     slug: article.slug,
   }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = ARTICLES.find((a) => a.slug === slug);
+  if (!article) return {};
+
+  return {
+    title: article.title,
+    description: article.excerpt,
+    openGraph: {
+      type: 'article',
+      title: article.title,
+      description: article.excerpt,
+      images: [article.image],
+    },
+  };
 }
 
 export default async function ArticlePage({ params }: PageProps) {
@@ -25,8 +50,33 @@ export default async function ArticlePage({ params }: PageProps) {
     notFound();
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: article.title,
+        description: article.excerpt,
+        image: [article.image],
+        author: { '@type': 'Person', name: article.author.name },
+        // TODO(fase-1): article.publishedAt hoy es texto libre ("Octubre 2026"), no ISO 8601 —
+        // añadir datePublished/dateModified reales cuando el frontmatter MDX los incluya.
+        publisher: { '@type': 'Organization', name: siteConfig.name },
+        mainEntityOfPage: `${siteConfig.domain}/blog/${article.slug}`,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Inicio', item: siteConfig.domain },
+          { '@type': 'ListItem', position: 2, name: article.title, item: `${siteConfig.domain}/blog/${article.slug}` },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="border-b border-slate-200 bg-white sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -36,7 +86,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </span>
           </Link>
           <Link href="/" className="text-sm font-medium text-emerald-600 hover:underline">
-            ← Back to Home
+            ← Volver al inicio
           </Link>
         </div>
       </header>
@@ -56,7 +106,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </h1>
 
           <div className="flex items-center gap-3 pb-6 mb-8 border-b border-slate-200 text-sm text-slate-600">
-            <span>By <strong className="text-slate-900">{article.author.name}</strong> ({article.author.role})</span>
+            <span>Por <strong className="text-slate-900">{article.author.name}</strong> ({article.author.role})</span>
           </div>
 
           <div className="mb-10 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
@@ -78,7 +128,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 ))}
                 {section.tip && (
                   <div className="bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-r-xl my-4 text-sm text-emerald-900">
-                    <strong>🌿 A little tip:</strong> {section.tip}
+                    <strong>🌿 Un pequeño tip:</strong> {section.tip}
                   </div>
                 )}
               </div>
@@ -86,7 +136,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
 
           <div className="mt-10 pt-6 border-t border-slate-200">
-            <h3 className="text-lg font-bold text-slate-900 mb-2">Before You Go 💭</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Antes de Irte 💭</h3>
             <p className="text-slate-600 leading-relaxed">{article.content.conclusion}</p>
           </div>
 
@@ -97,49 +147,34 @@ export default async function ArticlePage({ params }: PageProps) {
 
         <div className="mt-12">
           <BannerAd
-            title="A Few Things I Actually Use Every Day 🌿"
-            description="No corporate 'top 10' roundup here — just the handful of tools that earned a permanent spot in my own routine, warts and all."
-            ctaText="See What I Use"
+            title="Algunas Cosas que Uso Todos los Días 🌿"
+            description="Nada de un ranking corporativo de 'top 10' — solo el puñado de cosas que se ganaron un lugar permanente en mi rutina, con sus defectos y todo."
+            ctaText="Ver Qué Uso"
             affiliateUrl="https://amazon.com?tag=your-affiliate-tag-20"
-            badge="What I'm Loving Right Now"
+            badge="Lo que Más me Gusta Ahora"
           />
 
-          {/* Adsterra (or similar network) slot — replace scriptSrc/containerId with your real invoke keys */}
-          <BannerAd
-            network={{
-              scriptSrc: '//REPLACE_WITH_YOUR_ADSTERRA_INVOKE_URL/invoke.js',
-              containerId: 'container-replace-with-your-adsterra-key',
-              height: 250,
-            }}
-          />
+          {/* Slot de Adsterra (u otro network) — las claves reales se configuran por variables de entorno */}
+          <BannerAd network={ADSTERRA_SLOT} />
         </div>
 
         {article.recommendations && article.recommendations.length > 0 && (
           <section className="mt-16 pt-10 border-t-2 border-dashed border-slate-200">
             <h3 className="text-2xl font-bold text-slate-900 mb-2 text-center">
-              Stuff I'd Actually Tell a Friend to Buy ✨
+              Cosas que de Verdad le Diría a un Amigo que Comprara ✨
             </h3>
             <p className="text-slate-500 text-center text-sm mb-8">
-              No "top 10 best of" nonsense — just what's genuinely earned a spot in my routine.
+              Sin tonterías de "los 10 mejores" — solo lo que de verdad se ganó un lugar en mi rutina.
             </p>
 
             <div className="grid gap-6">
               {article.recommendations.map((rec) => (
-                <ProductAffiliateCard key={rec.id} product={rec} />
+                <ProductAffiliateCard key={rec.id} product={rec} articleSlug={article.slug} placement="article_recommendations" />
               ))}
             </div>
           </section>
         )}
       </main>
-
-      <footer className="bg-white border-t border-slate-200 py-8 px-6 mt-20 text-center text-xs text-slate-500">
-        <div className="max-w-4xl mx-auto space-y-3">
-          <p>© 2026 GetGreenRoutine. Thanks for reading — everything here comes from genuine trial, error, and way too much tea. 🍵</p>
-          <p className="max-w-2xl mx-auto text-slate-400">
-            <strong>Just so you know:</strong> some links on this site are affiliate links, and I may earn a small commission if you buy through them, at no extra cost to you. I only share things I'd genuinely recommend to a friend.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

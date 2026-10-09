@@ -50,7 +50,7 @@ export default function AdSlot({ scriptSrc, containerId, height, width, classNam
       ref={hostRef}
       className={className}
       style={{ minHeight: height, minWidth: width }}
-      aria-label="Advertisement"
+      aria-label="Publicidad"
       role="complementary"
     />
   );

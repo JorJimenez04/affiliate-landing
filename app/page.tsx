@@ -7,11 +7,17 @@ import BannerAd from '@/components/BannerAd';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
 
 const CATEGORY_TILES = [
-  { label: 'Herbal Remedies', icon: '🌿' },
-  { label: 'Daily Habits', icon: '☀️' },
-  { label: 'Plant-Based Recipes', icon: '🍲' },
-  { label: 'Active Recovery', icon: '🏃' },
+  { label: 'Remedios Herbales', icon: '🌿' },
+  { label: 'Hábitos Diarios', icon: '☀️' },
+  { label: 'Recetas con Plantas', icon: '🍲' },
+  { label: 'Recuperación Activa', icon: '🏃' },
 ];
+
+const ADSTERRA_SLOT = {
+  scriptSrc: process.env.NEXT_PUBLIC_ADSTERRA_SCRIPT_SRC ?? '',
+  containerId: process.env.NEXT_PUBLIC_ADSTERRA_CONTAINER_ID ?? 'ggr-adsterra-home',
+  height: 250,
+};
 
 export default function Home() {
   const mainArticle = ARTICLES[0];
@@ -29,17 +35,17 @@ export default function Home() {
             </span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-            <Link href="/" className="hover:text-emerald-600 transition-colors">Home</Link>
-            <Link href="#articles" className="hover:text-emerald-600 transition-colors">Remedies We Love</Link>
-            <Link href="#about" className="hover:text-emerald-600 transition-colors">Our Promise</Link>
+            <Link href="/" className="hover:text-emerald-600 transition-colors">Inicio</Link>
+            <Link href="#articles" className="hover:text-emerald-600 transition-colors">Remedios que Amamos</Link>
+            <Link href="/sobre-nosotros" className="hover:text-emerald-600 transition-colors">Nuestra Promesa</Link>
           </nav>
           <a
             href="https://amazon.com?tag=your-affiliate-tag-20"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored nofollow noopener"
             className="hidden md:inline-flex bg-slate-900 hover:bg-emerald-600 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors"
           >
-            Shop My Favorites ✨
+            Mis Favoritos ✨
           </a>
         </div>
         {/* Category ticker strip */}
@@ -81,9 +87,9 @@ export default function Home() {
                   {mainArticle.excerpt}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-slate-300 font-medium">By {mainArticle.author.name}</span>
+                  <span className="text-xs text-slate-300 font-medium">Por {mainArticle.author.name}</span>
                   <span className="text-emerald-300 font-semibold text-sm flex items-center gap-1">
-                    Keep Reading →
+                    Sigue Leyendo →
                   </span>
                 </div>
               </div>
@@ -94,20 +100,20 @@ export default function Home() {
               <div className="flex-[1.2] bg-gradient-to-br from-emerald-900 to-slate-900 rounded-2xl p-6 text-white shadow-md border border-emerald-500/30 flex flex-col justify-between">
                 <div>
                   <span className="text-[10px] uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2.5 py-1 rounded-full font-semibold inline-block mb-3">
-                    A Few of My Favorites
+                    Algunos de Mis Favoritos
                   </span>
-                  <h3 className="text-base md:text-lg font-bold mb-2 text-white">Daily Vitality Essentials 🌿</h3>
+                  <h3 className="text-base md:text-lg font-bold mb-2 text-white">Esenciales de Vitalidad Diaria 🌿</h3>
                   <p className="text-slate-300 text-xs leading-relaxed">
-                    Nothing fancy — just the handful of organic staples I actually keep restocking at home.
+                    Nada rebuscado — solo el puñado de básicos orgánicos que de verdad sigo reponiendo en casa.
                   </p>
                 </div>
                 <a
                   href="https://amazon.com?tag=your-affiliate-tag-20"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="sponsored nofollow noopener"
                   className="mt-4 block text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-colors shadow-sm"
                 >
-                  Take a Peek →
+                  Échale un Vistazo →
                 </a>
               </div>
 
@@ -134,8 +140,8 @@ export default function Home() {
           {/* Main column */}
           <div className="lg:col-span-8 space-y-8">
             <h2 className="text-xl font-bold text-slate-900 border-b pb-3 flex items-center justify-between">
-              <span>More From the Journal 📖</span>
-              <span className="text-xs font-normal text-slate-400">Grab a cup of tea ☕</span>
+              <span>Más del Diario 📖</span>
+              <span className="text-xs font-normal text-slate-400">Prepárate una taza de té ☕</span>
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5">
@@ -169,39 +175,33 @@ export default function Home() {
                       href={`/blog/${article.slug}`}
                       className="text-emerald-600 font-medium text-xs hover:underline flex items-center gap-1"
                     >
-                      Read →
+                      Leer →
                     </Link>
                   </div>
                 </div>
               ))}
 
-              {/* Native in-feed sponsored card — mimics article card layout, clearly labeled */}
+              {/* Tarjeta patrocinada nativa — imita el layout de las tarjetas de artículo, claramente etiquetada */}
               <NativeAdCard
                 sponsor="Botanica Labs"
-                title="The Sleep Ritual I Keep Seeing Everywhere This Fall"
-                excerpt="A cozy, dermatologist-reviewed evening routine with adaptogens and cooling textiles. I'm curious enough to try it myself."
+                title="El Ritual de Sueño que Veo en Todas Partes Esta Temporada"
+                excerpt="Una rutina nocturna acogedora con adaptógenos y textiles frescos. Tengo curiosidad por probarla yo misma."
                 image="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?auto=format&fit=crop&q=80&w=800"
-                ctaText="Take a Peek"
+                ctaText="Échale un Vistazo"
                 affiliateUrl="https://amazon.com?tag=your-affiliate-tag-20"
               />
             </div>
 
             <BannerAd
-              title="A Few Things I Actually Use Every Day 🌿"
-              description="No corporate 'top 10' roundup here — just the handful of tools that earned a permanent spot in my own routine, warts and all."
-              ctaText="See What I Use"
+              title="Algunas Cosas que Uso Todos los Días 🌿"
+              description="Nada de un ranking corporativo de 'top 10' — solo el puñado de cosas que se ganaron un lugar permanente en mi rutina, con sus defectos y todo."
+              ctaText="Ver Qué Uso"
               affiliateUrl="https://amazon.com?tag=your-affiliate-tag-20"
-              badge="What I'm Loving Right Now"
+              badge="Lo que Más me Gusta Ahora"
             />
 
-            {/* Adsterra (or similar network) slot — replace scriptSrc/containerId with your real invoke keys */}
-            <BannerAd
-              network={{
-                scriptSrc: '//REPLACE_WITH_YOUR_ADSTERRA_INVOKE_URL/invoke.js',
-                containerId: 'container-replace-with-your-adsterra-key',
-                height: 250,
-              }}
-            />
+            {/* Slot de Adsterra (u otro network) — las claves reales se configuran por variables de entorno */}
+            <BannerAd network={ADSTERRA_SLOT} />
           </div>
 
           {/* Sticky Sidebar */}
@@ -211,44 +211,44 @@ export default function Home() {
               {/* Newsletter */}
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
                 <span className="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2.5 py-1 rounded-full border border-emerald-200 uppercase tracking-wider inline-block mb-3">
-                  Let's Stay in Touch
+                  Mantengámonos en Contacto
                 </span>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Letters From Me, Occasionally ✨</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Cartas Mías, de Vez en Cuando ✨</h3>
                 <p className="text-slate-600 text-xs leading-relaxed mb-4">
-                  No spam, no fluff — just the rituals and little finds I'm actually trying myself, straight to your inbox.
+                  Sin spam, sin relleno — solo los rituales y pequeños hallazgos que de verdad estoy probando, directo a tu correo.
                 </p>
                 <div className="space-y-3">
                   <input
                     type="email"
-                    placeholder="Your email address"
+                    placeholder="Tu correo electrónico"
                     className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 bg-slate-50"
                     readOnly
                   />
                   <button className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm py-2.5 rounded-xl transition-colors shadow-sm">
-                    Count Me In
+                    Cuéntame Dentro
                   </button>
                 </div>
               </div>
 
-              {/* Trending / most read — keeps readers on-site */}
+              {/* Lo más leído — mantiene a la gente navegando dentro del sitio */}
               <TrendingList articles={ARTICLES} />
 
-              {/* Secondary partner ad, distinct copy from hero spotlight */}
+              {/* Segundo anuncio de socio, con copy distinto al del hero */}
               <div className="bg-gradient-to-br from-slate-900 to-emerald-900 rounded-2xl p-6 text-white shadow-md border border-emerald-500/30">
                 <span className="text-[10px] uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2.5 py-1 rounded-full font-semibold inline-block mb-3">
-                  What I'm Using
+                  Lo que Estoy Usando
                 </span>
-                <h3 className="text-base font-bold mb-2 text-white">Precision Sleep Tracker</h3>
+                <h3 className="text-base font-bold mb-2 text-white">Monitor de Sueño de Precisión</h3>
                 <p className="text-slate-300 text-xs mb-4 leading-relaxed">
-                  I was skeptical about sleep trackers until I saw my own data. This is the one that actually stuck.
+                  Era escéptica con los monitores de sueño hasta que vi mis propios datos. Este es el que realmente se quedó conmigo.
                 </p>
                 <a
                   href="https://amazon.com?tag=your-affiliate-tag-20"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="sponsored nofollow noopener"
                   className="block text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs py-2.5 rounded-xl transition-colors shadow-sm"
                 >
-                  Check It Out →
+                  Échale un Vistazo →
                 </a>
               </div>
 
@@ -261,20 +261,10 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-slate-200 py-8 px-6 mt-20 text-center text-xs text-slate-500">
-        <div className="max-w-4xl mx-auto space-y-3">
-          <p>© 2026 GetGreenRoutine. Thanks for reading — everything here comes from genuine trial, error, and way too much tea. 🍵</p>
-          <p className="max-w-2xl mx-auto text-slate-400">
-            <strong>Just so you know:</strong> some links on this site are affiliate links, and I may earn a small commission if you buy through them, at no extra cost to you. I only share things I'd genuinely recommend to a friend.
-          </p>
-        </div>
-      </footer>
-
-      {/* Mobile sticky conversion bar */}
+      {/* Barra fija de conversión en móvil */}
       <StickyMobileCTA
-        text="A few wellness picks I swear by 🌿"
-        ctaText="Take a Look"
+        text="Algunos favoritos de bienestar que juro que funcionan 🌿"
+        ctaText="Échale un Vistazo"
         affiliateUrl="https://amazon.com?tag=your-affiliate-tag-20"
       />
     </div>

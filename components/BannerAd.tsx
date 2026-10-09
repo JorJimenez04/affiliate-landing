@@ -1,4 +1,5 @@
 import AdSlot, { AdNetworkSlot } from './AdSlot';
+import { siteConfig } from '@/lib/site.config';
 
 interface AffiliateBannerAdProps {
   network?: undefined;
@@ -19,12 +20,15 @@ type BannerAdProps = AffiliateBannerAdProps | NetworkBannerAdProps;
 
 export default function BannerAd(props: BannerAdProps) {
   if (props.network) {
-    const { network, badge = 'Advertisement' } = props;
+    // Ningún script de red se carga mientras los anuncios estén apagados (valor por defecto).
+    if (!siteConfig.adsEnabled) return null;
+
+    const { network, badge = 'Publicidad' } = props;
     return (
       <div className="my-8 rounded-2xl border border-emerald-500/30 bg-slate-900 overflow-hidden shadow-lg">
         <div className="flex items-center justify-between px-5 py-2.5 bg-slate-900/80 border-b border-slate-700/60">
           <span className="text-[10px] uppercase tracking-wider font-semibold text-emerald-300">{badge}</span>
-          <span className="text-[10px] text-slate-500">Ads keep GetGreenRoutine free</span>
+          <span className="text-[10px] text-slate-500">La publicidad mantiene GetGreenRoutine gratis</span>
         </div>
         <div className="flex items-center justify-center p-4">
           <AdSlot {...network} className="w-full flex items-center justify-center" />
@@ -33,7 +37,7 @@ export default function BannerAd(props: BannerAdProps) {
     );
   }
 
-  const { title, description, ctaText, affiliateUrl, badge = 'Sponsored Recommendation' } = props;
+  const { title, description, ctaText, affiliateUrl, badge = 'Recomendación patrocinada' } = props;
 
   return (
     <div className="my-8 p-6 bg-gradient-to-r from-emerald-900 to-slate-900 rounded-2xl text-white shadow-lg border border-emerald-500/30">
@@ -41,7 +45,7 @@ export default function BannerAd(props: BannerAdProps) {
         <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full">
           {badge}
         </span>
-        <span className="text-[10px] text-slate-400">Verified Partner Offer</span>
+        <span className="text-[10px] text-slate-400">Oferta de socio verificado</span>
       </div>
 
       <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
@@ -49,7 +53,7 @@ export default function BannerAd(props: BannerAdProps) {
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-700/60">
         <span className="text-xs text-slate-400 italic">
-          * Secure checkout via trusted affiliate partner.
+          * Compra segura a través de un socio de afiliación de confianza.
         </span>
         <a
           href={affiliateUrl}

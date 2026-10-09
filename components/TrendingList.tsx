@@ -6,7 +6,7 @@ interface TrendingListProps {
   title?: string;
 }
 
-export default function TrendingList({ articles, title = "What Everyone's Reading 👀" }: TrendingListProps) {
+export default function TrendingList({ articles, title = 'Lo que todo el mundo está leyendo 👀' }: TrendingListProps) {
   return (
     <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
       <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4 flex items-center gap-2">

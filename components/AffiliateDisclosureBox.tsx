@@ -10,7 +10,7 @@ export default function AffiliateDisclosureBox({ compact = false }: AffiliateDis
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         <p className="text-xs text-slate-500 leading-relaxed">
-          <strong className="text-slate-700">Just so you know:</strong> some links on this page are affiliate links. If you buy something through them, I earn a small commission — at no extra cost to you. It's how this little site stays ad-clutter-free. 🌿
+          <strong className="text-slate-700">Para que lo sepas:</strong> algunos enlaces de esta página son de afiliado. Si compras algo a través de ellos, gano una pequeña comisión, sin costo extra para ti. Así este pequeño rincón de internet se mantiene sin publicidad invasiva. 🌿
         </p>
       </div>
     );
@@ -24,9 +24,9 @@ export default function AffiliateDisclosureBox({ compact = false }: AffiliateDis
         </svg>
       </div>
       <div>
-        <h4 className="text-sm font-bold text-slate-900 mb-1">A quick, honest note</h4>
+        <h4 className="text-sm font-bold text-slate-900 mb-1">Una nota breve y honesta</h4>
         <p className="text-xs text-slate-500 leading-relaxed">
-          I only recommend things I'd genuinely tell a friend about. Some of the links here are affiliate links, so if you buy through them, I earn a small commission at no extra cost to you. That relationship never changes what I write — if it's not good, I just won't mention it.
+          Solo recomiendo cosas que de verdad le diría a un amigo. Algunos de los enlaces de aquí son de afiliado, así que si compras a través de ellos, gano una pequeña comisión sin costo extra para ti. Esa relación comercial nunca cambia lo que escribo — si algo no me convence, simplemente no lo menciono.
         </p>
       </div>
     </div>

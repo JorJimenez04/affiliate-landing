@@ -13,7 +13,7 @@ export default function AuthorBioBox({ name, role, bio }: AuthorBioBoxProps) {
         {initial}
       </div>
       <div>
-        <p className="text-xs text-emerald-700 font-semibold uppercase tracking-wide mb-1">Written with care by</p>
+        <p className="text-xs text-emerald-700 font-semibold uppercase tracking-wide mb-1">Escrito con cariño por</p>
         <h4 className="text-base font-bold text-slate-900 mb-1">{name} <span className="text-slate-400 font-normal text-sm">· {role}</span></h4>
         <p className="text-sm text-slate-600 leading-relaxed">{bio}</p>
       </div>

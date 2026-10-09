@@ -1,29 +1,32 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { siteConfig } from '@/lib/site.config';
+import { ConsentProvider } from '@/components/consent/ConsentProvider';
+import ConsentBanner from '@/components/consent/ConsentBanner';
+import Analytics from '@/components/analytics/Analytics';
+import Footer from '@/components/Footer';
 
-const SITE_NAME = 'GetGreenRoutine';
-const SITE_URL = 'https://getgreenroutine.com';
-const SITE_DESCRIPTION =
-  'Traditional phytotherapy and practical science, daily habits, plant-based recipes and active recovery — honest editorial guides on living a greener, healthier routine.';
+const TAGLINE = 'Sabiduría herbal y hábitos saludables';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(siteConfig.domain),
   title: {
-    default: `${SITE_NAME} | Herbal Wisdom & Healthy Habits`,
-    template: `%s | ${SITE_NAME}`,
+    default: `${siteConfig.name} | ${TAGLINE}`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: SITE_DESCRIPTION,
+  description: siteConfig.description,
   openGraph: {
     type: 'website',
-    siteName: SITE_NAME,
+    siteName: siteConfig.name,
     url: '/',
-    title: `${SITE_NAME} | Herbal Wisdom & Healthy Habits`,
-    description: SITE_DESCRIPTION,
+    locale: siteConfig.locale,
+    title: `${siteConfig.name} | ${TAGLINE}`,
+    description: siteConfig.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} | Herbal Wisdom & Healthy Habits`,
-    description: SITE_DESCRIPTION,
+    title: `${siteConfig.name} | ${TAGLINE}`,
+    description: siteConfig.description,
   },
   robots: { index: true, follow: true },
 };
@@ -35,9 +38,35 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        name: siteConfig.name,
+        url: siteConfig.domain,
+      },
+      {
+        '@type': 'WebSite',
+        name: siteConfig.name,
+        url: siteConfig.domain,
+        inLanguage: siteConfig.lang,
+      },
+    ],
+  };
+
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+    <html lang={siteConfig.lang}>
+      <body className="font-sans antialiased">
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <ConsentProvider>
+          <Analytics />
+          {children}
+          <Footer />
+          <ConsentBanner />
+        </ConsentProvider>
+      </body>
     </html>
   );
 }
