@@ -1,0 +1,44 @@
+{
+  "slug": "natural-ways-to-create-a-calm-workspace",
+  "title": "My Home Desk Was Stressing Me Out — So I Rebuilt It With Nature in Mind",
+  "excerpt": "A few small, mostly-free changes that took my cluttered, screen-glare-filled desk from draining to genuinely calming to sit at every day.",
+  "category": "Calm Workspace 🌿",
+  "readTime": "6 min read",
+  "publishedAt": "September 2026",
+  "author": {
+    "name": "Maya Lin",
+    "role": "Workspace Ergonomics & Biophilic Design Writer",
+    "bio": "I write at this desk for a living, so when it started making me dread sitting down, I treated the redesign like an experiment on myself. Here's what actually moved the needle, minus the Pinterest-perfect fluff."
+  },
+  "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000",
+  "content": {
+    "introduction": "Ever notice how some rooms just drain you, and others feel like you can breathe? I didn't think much about it until I realized I was dreading sitting at my own desk every morning. Turns out my environment was doing a lot more to my focus than I gave it credit for — so I started changing it, one small thing at a time.",
+    "sections": [
+      {
+        "heading": "1. A Low-Maintenance Plant (Even I Couldn't Kill It) 🌱",
+        "body": [
+          "I have murdered many plants. Snake plants and pothos are the first ones that actually survived on my desk, and having something green in my eyeline softens the harsh glare of my monitor more than I expected."
+        ],
+        "tip": "Put it somewhere you'll actually look at during the day — mine sits right beside my second monitor so my eyes get a little break every time I glance over."
+      },
+      {
+        "heading": "2. Chasing Natural Light Instead of Fighting It",
+        "body": [
+          "Moving my desk perpendicular to the window (instead of facing it) killed the glare on my screen and still let in enough daylight to keep me from feeling like a vampire by 3pm."
+        ]
+      }
+    ],
+    "conclusion": "None of this cost much, and I didn't do it all in one weekend. But piece by piece, my desk went from a place I avoided to the spot in my apartment I actually enjoy working from. If your space is draining you too, start with just one plant."
+  },
+  "recommendations": [
+    {
+      "id": "rec-4",
+      "name": "Ergonomic Bamboo Laptop Stand with Desk Organizer",
+      "description": "I grabbed this mostly for the clutter, but my neck pain quietly disappeared a few weeks in too. Now I notice it when I travel and don't have it.",
+      "priceEstimate": "$29.99",
+      "rating": 4.7,
+      "affiliateUrl": "https://amazon.com/dp/EXAMPLE4?tag=your-affiliate-tag-20",
+      "badge": "Unexpected MVP"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "garlic-traditional-herbal-remedies-blood-digestion",
+  "title": "Why Traditional Herbalists Called Garlic 'The Kitchen Pharmacy'",
+  "excerpt": "The kitchen staple my grandmother swore by for everything from a stuffy nose to a sluggish stomach — and the ridiculously simple way she actually used it.",
+  "category": "Plant-Based Remedies 🧄",
+  "readTime": "5 min read",
+  "publishedAt": "October 2026",
+  "author": {
+    "name": "Sophia Vance",
+    "role": "Holistic Living & Botanical Enthusiast",
+    "bio": "Exploring traditional herbal practices and translating classic remedies into simple daily routines for modern living."
+  },
+  "image": "/images/garlic-elixir.jpg",
+  "content": {
+    "introduction": "Long before pharmacies were on every corner, most households just reached for what was already in the kitchen. In my family, that meant garlic — my grandmother treated it like a cure-all, from a heavy stomach after dinner to the first sniffle of a cold. Turns out, traditional herbalists have leaned on it the exact same way for centuries.",
+    "sections": [
+      {
+        "heading": "1. The Everyday Digestive Helper 🧄",
+        "body": [
+          "The trick is ridiculously simple: raw garlic, finely chopped, mixed straight into your food. No fancy prep, no capsules — just a clove worked into whatever you're already cooking.",
+          "My grandmother always said it \"wakes up\" a heavy stomach after a big meal, and whether that's old folklore or not, I notice a lot less of that sluggish, overfull feeling when I actually remember to add it."
+        ],
+        "tip": "Chop or crush your garlic and let it sit for about 10 minutes before eating — that little pause is apparently when it does its best work, according to how it's traditionally prepared."
+      },
+      {
+        "heading": "2. The Go-To for Scratchy Throats and Stuffy Noses",
+        "body": [
+          "Come cold season, a warm garlic broth was non-negotiable growing up. It won't replace a doctor's advice, but there's something genuinely comforting about a warm, savory broth when your chest feels tight and your nose won't stop running."
+        ]
+      }
+    ],
+    "conclusion": "Science is still catching up to a lot of what grandmothers have known forever, but keeping a simple ingredient like garlic in daily rotation is such an easy way to borrow a little old-school wisdom — no pharmacy trip required."
+  },
+  "recommendations": [
+    {
+      "id": "rec-garlic-1",
+      "name": "Stainless Steel Garlic Press & Mincer",
+      "description": "The easiest way to prepare fresh garlic for your daily cooking and remedies without the mess on your hands.",
+      "priceEstimate": "$15.99",
+      "rating": 4.8,
+      "affiliateUrl": "https://amazon.com/dp/EXAMPLE-GARLIC?tag=your-affiliate-tag-20",
+      "badge": "Kitchen Essential"
+    }
+  ]
+}

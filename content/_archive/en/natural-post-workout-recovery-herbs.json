@@ -1,0 +1,58 @@
+{
+  "slug": "natural-post-workout-recovery-herbs",
+  "title": "I Swapped My Ibuprofen Habit for These 3 Plant-Based Recovery Tricks",
+  "excerpt": "Three practical, low-effort swaps rooted in traditional phytotherapy that actually changed how sore I feel the day after training.",
+  "category": "Active Recovery 🏃",
+  "readTime": "5 min read",
+  "publishedAt": "October 2026",
+  "author": {
+    "name": "Marcus Oyelaran",
+    "role": "Strength Coach & Natural Recovery Writer",
+    "bio": "I coach lifters for a living and used to reach for ibuprofen like it was a pre-workout supplement. A nagging stomach issue forced me to find other ways to manage soreness — these are the three that actually stuck, backed by both old herbal practice and the newer research on them."
+  },
+  "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000",
+  "content": {
+    "introduction": "Popping ibuprofen after every leg day felt normal for years, until it wasn't doing my stomach any favors. Turns out a few plant-based tools — some used in traditional medicine for centuries, now with actual research behind them — cover a surprising amount of what I was using painkillers for.",
+    "sections": [
+      {
+        "heading": "1. Topical Arnica Montana Gel for Localized Soreness",
+        "body": [
+          "Arnica has been used topically in European folk medicine for bruising and muscle pain for generations. I rub it into whatever muscle group took the worst beating within an hour of training, and the next-day stiffness is noticeably less sharp — especially on heavy lower-body days."
+        ],
+        "tip": "Never take arnica orally unless it's a diluted homeopathic prep made for that — the raw plant is for topical use only."
+      },
+      {
+        "heading": "2. Tart Cherry Extract the Night Before a Hard Session",
+        "body": [
+          "Tart cherries are naturally high in anthocyanins, and a concentrate taken the evening before an intense session has made my soreness the following day feel noticeably more manageable — this is one of the few folk remedies with a decent stack of actual sports-science studies behind it."
+        ]
+      },
+      {
+        "heading": "3. A Warm Magnesium & Lavender Soak",
+        "body": [
+          "Twenty minutes in a warm bath with magnesium flakes and a few drops of lavender oil has become my non-negotiable Sunday ritual after a heavy training week. Whether it's the magnesium, the warmth, or just forcing myself to sit still for once, my legs feel distinctly less wrecked by Monday."
+        ]
+      }
+    ],
+    "conclusion": "None of this replaces proper programming, sleep, or a doctor's advice if something actually hurts versus just feeling worked. But trading my reflexive ibuprofen habit for these three plant-based tools has made recovery feel like something I'm actively doing, not just waiting out."
+  },
+  "recommendations": [
+    {
+      "id": "rec-7",
+      "name": "Topical Arnica Montana Recovery Gel",
+      "description": "This is the exact tube in my gym bag. A little goes a long way, and it doesn't leave the greasy residue some of the cheaper balms do.",
+      "priceEstimate": "$12.99",
+      "rating": 4.6,
+      "affiliateUrl": "https://amazon.com/dp/EXAMPLE7?tag=your-affiliate-tag-20",
+      "badge": "Gym Bag Staple"
+    },
+    {
+      "id": "rec-8",
+      "name": "Concentrated Tart Cherry Extract Capsules",
+      "description": "I take two of these the night before a heavy session. Easier to keep consistent than brewing tart cherry juice from concentrate every time.",
+      "priceEstimate": "$22.00",
+      "rating": 4.5,
+      "affiliateUrl": "https://amazon.com/dp/EXAMPLE8?tag=your-affiliate-tag-20"
+    }
+  ]
+}

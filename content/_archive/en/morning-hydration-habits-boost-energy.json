@@ -1,0 +1,44 @@
+{
+  "slug": "morning-hydration-habits-boost-energy",
+  "title": "I Stopped Reaching for Coffee First Thing — Here's What I Drink Instead",
+  "excerpt": "Four ridiculously simple morning hydration habits that cleared my brain fog faster than my old three-cups-of-coffee routine ever did.",
+  "category": "Morning Energy ☕",
+  "readTime": "4 min read",
+  "publishedAt": "October 2026",
+  "author": {
+    "name": "Liam Carter",
+    "role": "Mindful Living & Routine Strategist",
+    "bio": "Recovering caffeine-before-water addict. I spent a month tracking how I actually felt each morning depending on what I drank first — this is the routine that stuck, and the one my friends are tired of hearing me talk about."
+  },
+  "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1000",
+  "content": {
+    "introduction": "Quick question: what's the very first thing you drink after waking up? For years, mine was coffee, straight away, no exceptions. Then I learned that after 7-8 hours asleep your body is basically mildly dehydrated already — and coffee on top of that was quietly spiking my stress hormones every single morning. So I tried something embarrassingly simple instead.",
+    "sections": [
+      {
+        "heading": "1. Room Temperature Water with Fresh Lemon 🍋",
+        "body": [
+          "I know, I know — it sounds like the most basic wellness advice ever. But a big glass of this before anything else genuinely wakes up my digestion, and I feel less foggy by the time I sit down at my desk."
+        ],
+        "tip": "Skip the ice-cold water first thing — I noticed my body seemed to work harder just processing the temperature instead of actually hydrating."
+      },
+      {
+        "heading": "2. A Pinch of Pink Himalayan Salt and Trace Minerals",
+        "body": [
+          "This one felt silly the first time I tried it, but a tiny pinch stirred in genuinely helps the water actually absorb instead of running straight through you. My 10am energy crash got noticeably smaller."
+        ]
+      }
+    ],
+    "conclusion": "I'm not saying ditch coffee forever (I definitely didn't). But giving your body real hydration in those first 15 minutes before anything else has made my mornings feel less like damage control and more like I'm actually starting the day ahead."
+  },
+  "recommendations": [
+    {
+      "id": "rec-3",
+      "name": "Insulated Stainless Steel Glass Water Bottle",
+      "description": "This has lived on my nightstand for months now. It keeps my lemon water tasting clean instead of plasticky, and honestly just seeing it there reminds me to actually drink it.",
+      "priceEstimate": "$21.99",
+      "rating": 4.9,
+      "affiliateUrl": "https://amazon.com/dp/EXAMPLE3?tag=your-affiliate-tag-20",
+      "badge": "Lives On My Nightstand"
+    }
+  ]
+}

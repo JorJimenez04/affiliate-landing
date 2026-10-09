@@ -10,6 +10,14 @@ export interface ProductRecommendation {
 
 export interface Article {
   slug: string;
+  /**
+   * Idioma del artículo. El sitio se publica solo en español ('es'); los
+   * artículos marcados 'en' son contenido original pendiente de traducir
+   * (ver content/_archive/en/ para el respaldo de todos los originales).
+   * No hay rutas /en todavía — es solo el modelo de datos, preparado para
+   * i18n a futuro.
+   */
+  lang: 'es' | 'en';
   title: string;
   excerpt: string;
   category: string;
@@ -33,212 +41,218 @@ export interface Article {
   recommendations: ProductRecommendation[];
 }
 
-// Editorial guidelines for GetGreenRoutine (all-ages, friendly tone — keep this for every article, current or new):
-// - Talk to the reader like a close friend sharing a tip, never clinical/medical language or Latin plant names.
-// - Short paragraphs, clear headings, and a quick `tip` per section so it reads easily on mobile.
-// - Stay practical: how does this plant or habit actually help with sleep, energy, or everyday calm?
+// Línea editorial de GetGreenRoutine (todo público, tono cercano — mantener en cada artículo, actual o nuevo):
+// - Habla de tú a tú, como le contarías un consejo a un amigo cercano — nada de lenguaje clínico/médico ni nombres científicos en latín.
+// - Párrafos cortos, encabezados claros y un `tip` rápido por sección para que se lea fácil en el celular.
+// - Sé práctico: ¿cómo ayuda esta planta o hábito a dormir mejor, tener más energía o sentirse más tranquilo en el día a día?
+// - Lenguaje seguro (Fase 1.3): nunca "cura/curar", "garantizado", "milagroso", "sin efectos secundarios" ni "sustituye/reemplaza el medicamento".
+//   En su lugar: "tradicionalmente se usa para…", "a mí me ayuda a…", "muchas personas la toman para…", "puede ayudar a…".
 export const ARTICLES: Article[] = [
   {
-    slug: "5-natural-herbal-teas-better-sleep",
-    title: "Can't Switch Your Brain Off at Night? These 5 Teas Changed My Evenings",
-    excerpt: "I used to lie awake scrolling until 1am. Here are the five herbal teas that actually got me off my phone and into bed earlier — no melatonin gummies required.",
-    category: "Nighttime Rituals 🌙",
-    readTime: "5 min read",
-    publishedAt: "October 2026",
+    slug: "tes-para-dormir-mejor",
+    lang: "es",
+    title: "¿No Logras Apagar la Mente en la Noche? Estos 5 Tés Cambiaron Mis Noches",
+    excerpt: "Antes me quedaba despierta viendo el celular hasta la 1am. Estos son los cinco tés de hierbas que de verdad me ayudaron a soltar el teléfono y acostarme más temprano, sin gomitas de melatonina.",
+    category: "Rituales Nocturnos 🌙",
+    readTime: "5 min de lectura",
+    publishedAt: "Octubre 2026",
     author: {
       name: "Sophia Vance",
-      role: "Holistic Living & Botanical Enthusiast",
-      bio: "I've been obsessed with herbal remedies since my grandmother's kitchen smelled like chamomile every winter. These days I test a new sleep ritual every month so you don't have to — consider me your overly caffeinated (ironic, I know) guinea pig."
+      role: "Vida Holística y Entusiasta de las Plantas",
+      bio: "Estoy obsesionada con los remedios de hierbas desde que la cocina de mi abuela olía a manzanilla cada invierno. Hoy en día pruebo un ritual de sueño nuevo cada mes para que tú no tengas que hacerlo — considérame tu conejillo de indias con demasiada cafeína (la ironía no se me escapa)."
     },
     image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=1000",
     content: {
-      introduction: "Real talk: are you also someone who lies in bed \"just checking one more thing\" on your phone until it's suddenly 1am? Same. For years my evenings were a mess of blue light and racing thoughts, until I started leaning on a handful of herbal teas my grandmother swore by. Turns out, nature had this figured out long before sleep apps existed.",
+      introduction: "Hablemos en serio: ¿tú también eres de los que se quedan en la cama \"solo revisando una cosa más\" en el celular hasta que de repente ya es la 1am? Igual que yo. Durante años mis noches fueron un caos de luz azul y pensamientos acelerados, hasta que empecé a apoyarme en un puñado de tés de hierbas que mi abuela juraba que funcionaban. Resulta que la naturaleza ya tenía esto resuelto mucho antes de que existieran las apps para dormir.",
       sections: [
         {
-          heading: "1. Chamomile & Lavender: My Non-Negotiable Nightly Duo 🌙",
+          heading: "1. Manzanilla y Lavanda: Mi Dúo Nocturno Innegociable 🌙",
           body: [
-            "This is the pairing I reach for on nights when my brain just won't quiet down. Chamomile and lavender together feel like a weighted blanket for your nervous system — it genuinely melts the tension I didn't even notice I was holding in my shoulders.",
-            "I make mine about 30 minutes before I want to actually be asleep (not just in bed — big difference), and I skip the honey on the rough nights since sugar tends to perk me right back up."
+            "Esta es la combinación a la que recurro las noches en que la mente simplemente no se quiere callar. Manzanilla y lavanda juntas se sienten como una cobija pesada para el sistema nervioso — de verdad deshacen una tensión en los hombros que ni sabía que tenía.",
+            "La preparo unos 30 minutos antes de la hora en que realmente quiero estar dormida (no solo acostada, es una gran diferencia), y en las noches difíciles me salto la miel porque el azúcar tiende a despabilarme otra vez."
           ],
-          tip: "Cover your mug while it steeps for 5 minutes — I lost years not knowing the good stuff was escaping with the steam!"
+          tip: "Tapa tu taza mientras reposa por 5 minutos — ¡perdí años sin saber que lo bueno se escapaba con el vapor!"
         },
         {
-          heading: "2. Valerian Root & Passionflower: For the Really Wired Nights",
+          heading: "2. Raíz de Valeriana y Pasiflora: Para las Noches Realmente Aceleradas",
           body: [
-            "I'll be honest, the smell took some getting used to. But when my mind is in full spiral mode, this combo is the one that actually taps my body on the shoulder and says \"hey, it's time to wind down.\""
+            "Voy a ser honesta, el olor me costó acostumbrarme. Pero cuando mi mente está en modo espiral total, esta combinación es la que de verdad le da un toquecito en el hombro a mi cuerpo y le dice \"oye, ya es hora de bajar el ritmo\"."
           ]
         },
         {
-          heading: "3. Lemon Balm (Melissa): The Gentle One I Didn't Expect to Love",
+          heading: "3. Toronjil (Melisa): La Suave que No Esperaba que Me Encantara",
           body: [
-            "This was a surprise favorite. Beyond smelling lovely, it quietly settles my stomach after a heavy dinner, which — turns out — was half of why I couldn't fall asleep in the first place."
+            "Esta fue una sorpresa entre mis favoritos. Más allá de que huele delicioso, me calma el estómago en silencio después de una cena pesada, lo cual, resulta, era la mitad de la razón por la que no podía dormirme."
           ]
         }
       ],
-      conclusion: "None of this is a magic fix, and some nights still get away from me. But swapping even three nights a week of scrolling for a warm cup and five quiet minutes has genuinely changed how I feel in the mornings. Small ritual, bigger difference than I expected."
+      conclusion: "Nada de esto es una solución mágica, y todavía hay noches que se me escapan. Pero cambiar aunque sea tres noches a la semana de estar en el celular por una taza caliente y cinco minutos de calma de verdad cambió cómo me siento en las mañanas. Un ritual pequeño, una diferencia más grande de lo que esperaba."
     },
     recommendations: [
       {
         id: "rec-1",
-        name: "Organic Botanical Herbal Tea Selection (Premium Kit)",
-        description: "This is the exact variety pack sitting on my kitchen shelf right now. I rotate through it depending on my mood, and the packaging actually keeps the aroma locked in — a small detail that matters more than I expected.",
+        name: "Selección de Tés de Hierbas Orgánicos (Kit Premium)",
+        description: "Este es exactamente el pack variado que tengo en la repisa de mi cocina ahora mismo. Voy rotando según el ánimo del día, y el empaque de verdad mantiene el aroma encerrado — un detalle pequeño que importa más de lo que esperaba.",
         priceEstimate: "$24.99",
         rating: 4.8,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE1?tag=your-affiliate-tag-20",
-        badge: "My Top Pick"
+        badge: "Mi Favorito"
       },
       {
         id: "rec-2",
-        name: "Precision Temperature Control Electric Kettle",
-        description: "I was skeptical a kettle could \"change the game,\" but water that's too hot genuinely scorches delicate herbs and ruins the flavor. This one saved my tea from tasting bitter, and I use it daily now.",
+        name: "Hervidor Eléctrico con Control de Temperatura de Precisión",
+        description: "Era escéptica de que un hervidor pudiera \"cambiarlo todo\", pero el agua demasiado caliente de verdad quema las hierbas delicadas y arruina el sabor. Este salvó mi té de saber amargo, y ahora lo uso todos los días.",
         priceEstimate: "$39.99",
         rating: 4.7,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE2?tag=your-affiliate-tag-20",
-        badge: "Worth Every Penny"
+        badge: "Vale Cada Peso"
       }
     ]
   },
   {
-    slug: "morning-hydration-habits-boost-energy",
-    title: "I Stopped Reaching for Coffee First Thing — Here's What I Drink Instead",
-    excerpt: "Four ridiculously simple morning hydration habits that cleared my brain fog faster than my old three-cups-of-coffee routine ever did.",
-    category: "Morning Energy ☕",
-    readTime: "4 min read",
-    publishedAt: "October 2026",
+    slug: "hidratacion-matutina-energia",
+    lang: "es",
+    title: "Dejé de Tomar Café Como Primera Cosa del Día — Esto es lo que Bebo Ahora",
+    excerpt: "Cuatro hábitos de hidratación matutina ridículamente simples que me despejaron la mente más rápido que mi vieja rutina de tres tazas de café.",
+    category: "Energía Matutina ☕",
+    readTime: "4 min de lectura",
+    publishedAt: "Octubre 2026",
     author: {
       name: "Liam Carter",
-      role: "Mindful Living & Routine Strategist",
-      bio: "Recovering caffeine-before-water addict. I spent a month tracking how I actually felt each morning depending on what I drank first — this is the routine that stuck, and the one my friends are tired of hearing me talk about."
+      role: "Vida Consciente y Estratega de Rutinas",
+      bio: "Adicto en recuperación a la cafeína-antes-que-agua. Pasé un mes anotando cómo me sentía cada mañana según lo que bebía primero — esta es la rutina que se quedó, y de la que mis amigos ya están cansados de escucharme hablar."
     },
     image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1000",
     content: {
-      introduction: "Quick question: what's the very first thing you drink after waking up? For years, mine was coffee, straight away, no exceptions. Then I learned that after 7-8 hours asleep your body is basically mildly dehydrated already — and coffee on top of that was quietly spiking my stress hormones every single morning. So I tried something embarrassingly simple instead.",
+      introduction: "Pregunta rápida: ¿qué es lo primero que tomas al despertar? Durante años, la mía fue café, directo, sin excepciones. Luego aprendí que después de 7-8 horas dormido tu cuerpo ya está levemente deshidratado — y el café encima de eso me subía las hormonas de estrés en silencio cada mañana. Así que probé algo vergonzosamente simple en su lugar.",
       sections: [
         {
-          heading: "1. Room Temperature Water with Fresh Lemon 🍋",
+          heading: "1. Agua a Temperatura Ambiente con Limón Fresco 🍋",
           body: [
-            "I know, I know — it sounds like the most basic wellness advice ever. But a big glass of this before anything else genuinely wakes up my digestion, and I feel less foggy by the time I sit down at my desk."
+            "Lo sé, lo sé — suena al consejo de bienestar más básico que existe. Pero un vaso grande de esto antes que cualquier otra cosa de verdad despierta mi digestión, y siento la mente menos nublada para cuando me siento en el escritorio."
           ],
-          tip: "Skip the ice-cold water first thing — I noticed my body seemed to work harder just processing the temperature instead of actually hydrating."
+          tip: "Evita el agua helada a primera hora — noté que mi cuerpo parecía esforzarse más en procesar la temperatura que en hidratarme de verdad."
         },
         {
-          heading: "2. A Pinch of Pink Himalayan Salt and Trace Minerals",
+          heading: "2. Una Pizca de Sal Rosa del Himalaya y Minerales Traza",
           body: [
-            "This one felt silly the first time I tried it, but a tiny pinch stirred in genuinely helps the water actually absorb instead of running straight through you. My 10am energy crash got noticeably smaller."
+            "Esta me pareció una tontería la primera vez que la probé, pero una pizca pequeña disuelta de verdad ayuda a que el agua se absorba en vez de pasar de largo. Mi bajón de energía de las 10am se hizo notablemente más pequeño."
           ]
         }
       ],
-      conclusion: "I'm not saying ditch coffee forever (I definitely didn't). But giving your body real hydration in those first 15 minutes before anything else has made my mornings feel less like damage control and more like I'm actually starting the day ahead."
+      conclusion: "No estoy diciendo que dejes el café para siempre (yo definitivamente no lo hice). Pero darle a tu cuerpo hidratación real en esos primeros 15 minutos antes que cualquier otra cosa ha hecho que mis mañanas se sientan menos como control de daños y más como que de verdad arranco el día con ventaja."
     },
     recommendations: [
       {
         id: "rec-3",
-        name: "Insulated Stainless Steel Glass Water Bottle",
-        description: "This has lived on my nightstand for months now. It keeps my lemon water tasting clean instead of plasticky, and honestly just seeing it there reminds me to actually drink it.",
+        name: "Botella de Agua Aislada de Acero Inoxidable",
+        description: "Esta ha vivido en mi mesa de noche por meses. Mantiene mi agua con limón con un sabor limpio en vez de a plástico, y honestamente solo verla ahí me recuerda que debo tomarla.",
         priceEstimate: "$21.99",
         rating: 4.9,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE3?tag=your-affiliate-tag-20",
-        badge: "Lives On My Nightstand"
+        badge: "Vive en mi Mesa de Noche"
       }
     ]
   },
   {
-    slug: "natural-ways-to-create-a-calm-workspace",
-    title: "My Home Desk Was Stressing Me Out — So I Rebuilt It With Nature in Mind",
-    excerpt: "A few small, mostly-free changes that took my cluttered, screen-glare-filled desk from draining to genuinely calming to sit at every day.",
-    category: "Calm Workspace 🌿",
-    readTime: "6 min read",
-    publishedAt: "September 2026",
+    slug: "espacio-trabajo-calmado",
+    lang: "es",
+    title: "Mi Escritorio en Casa Me Estaba Estresando — Así que lo Rediseñé Pensando en la Naturaleza",
+    excerpt: "Unos pocos cambios pequeños, casi todos gratis, que convirtieron mi escritorio desordenado y lleno de reflejos de pantalla en un lugar de verdad calmado para sentarme cada día.",
+    category: "Espacio de Trabajo Calmado 🌿",
+    readTime: "6 min de lectura",
+    publishedAt: "Septiembre 2026",
     author: {
       name: "Maya Lin",
-      role: "Workspace Ergonomics & Biophilic Design Writer",
-      bio: "I write at this desk for a living, so when it started making me dread sitting down, I treated the redesign like an experiment on myself. Here's what actually moved the needle, minus the Pinterest-perfect fluff."
+      role: "Ergonomía de Espacios y Diseño Biofílico",
+      bio: "Escribo en este escritorio para vivir, así que cuando empezó a darme pereza sentarme, traté el rediseño como un experimento sobre mí misma. Esto es lo que de verdad hizo la diferencia, sin el relleno perfecto de Pinterest."
     },
     image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000",
     content: {
-      introduction: "Ever notice how some rooms just drain you, and others feel like you can breathe? I didn't think much about it until I realized I was dreading sitting at my own desk every morning. Turns out my environment was doing a lot more to my focus than I gave it credit for — so I started changing it, one small thing at a time.",
+      introduction: "¿Alguna vez notaste cómo algunos cuartos simplemente te agotan, y otros se sienten como si pudieras respirar? No le daba muchas vueltas hasta que me di cuenta de que me daba pereza sentarme en mi propio escritorio cada mañana. Resulta que mi entorno influía mucho más en mi concentración de lo que yo le reconocía — así que empecé a cambiarlo, una cosa pequeña a la vez.",
       sections: [
         {
-          heading: "1. A Low-Maintenance Plant (Even I Couldn't Kill It) 🌱",
+          heading: "1. Una Planta de Bajo Mantenimiento (Ni Yo Pude Matarla) 🌱",
           body: [
-            "I have murdered many plants. Snake plants and pothos are the first ones that actually survived on my desk, and having something green in my eyeline softens the harsh glare of my monitor more than I expected."
+            "He matado muchas plantas. La lengua de suegra y el potus son las primeras que de verdad sobrevivieron en mi escritorio, y tener algo verde en mi línea de visión suaviza el brillo duro del monitor más de lo que esperaba."
           ],
-          tip: "Put it somewhere you'll actually look at during the day — mine sits right beside my second monitor so my eyes get a little break every time I glance over."
+          tip: "Ponla en un lugar donde de verdad la vayas a mirar durante el día — la mía está justo al lado de mi segundo monitor, así mis ojos descansan un poco cada vez que la miro."
         },
         {
-          heading: "2. Chasing Natural Light Instead of Fighting It",
+          heading: "2. Aprovechar la Luz Natural en Vez de Pelear con Ella",
           body: [
-            "Moving my desk perpendicular to the window (instead of facing it) killed the glare on my screen and still let in enough daylight to keep me from feeling like a vampire by 3pm."
+            "Mover mi escritorio de forma perpendicular a la ventana (en vez de quedar de frente a ella) eliminó el reflejo en mi pantalla y aun así dejó entrar suficiente luz del día para que no me sintiera un vampiro a las 3pm."
           ]
         }
       ],
-      conclusion: "None of this cost much, and I didn't do it all in one weekend. But piece by piece, my desk went from a place I avoided to the spot in my apartment I actually enjoy working from. If your space is draining you too, start with just one plant."
+      conclusion: "Nada de esto costó mucho, y no lo hice todo en un fin de semana. Pero poco a poco, mi escritorio pasó de ser un lugar que evitaba a ser el rincón de mi apartamento desde el que de verdad disfruto trabajar. Si tu espacio también te está agotando, empieza con una sola planta."
     },
     recommendations: [
       {
         id: "rec-4",
-        name: "Ergonomic Bamboo Laptop Stand with Desk Organizer",
-        description: "I grabbed this mostly for the clutter, but my neck pain quietly disappeared a few weeks in too. Now I notice it when I travel and don't have it.",
+        name: "Soporte de Bambú Ergonómico para Laptop con Organizador de Escritorio",
+        description: "Lo compré sobre todo por el desorden, pero mi dolor de cuello también desapareció en silencio después de unas semanas. Ahora lo noto cuando viajo y no lo tengo.",
         priceEstimate: "$29.99",
         rating: 4.7,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE4?tag=your-affiliate-tag-20",
-        badge: "Unexpected MVP"
+        badge: "La Sorpresa del Año"
       }
     ]
   },
   {
-    slug: "turmeric-ginger-immunity-tonic-recipe",
-    title: "The 5-Minute Turmeric-Ginger Tonic I Make Every Single Morning",
-    excerpt: "A simple root-and-spice tonic rooted in traditional herbal medicine, plus the one practical science tweak that actually makes it work better.",
-    category: "Plant-Based Recipes 🍲",
-    readTime: "4 min read",
-    publishedAt: "October 2026",
+    slug: "tonico-curcuma-jengibre",
+    lang: "es",
+    title: "El Tónico de Cúrcuma y Jengibre de 5 Minutos que Preparo Cada Mañana",
+    excerpt: "Un tónico sencillo de raíces y especias basado en la herbolaria tradicional, más un truco práctico respaldado por la ciencia que de verdad lo hace funcionar mejor.",
+    category: "Recetas con Plantas 🍲",
+    readTime: "4 min de lectura",
+    publishedAt: "Octubre 2026",
     author: {
       name: "Elena Ross",
-      role: "Herbalist & Recipe Developer",
-      bio: "Trained in traditional phytotherapy, but I live in a real kitchen with a real blender, not an apothecary. My rule: if a remedy takes more than five minutes or six ingredients, I won't actually make it twice — so that's the bar for everything I publish."
+      role: "Herbolaria y Desarrolladora de Recetas",
+      bio: "Formada en fitoterapia tradicional, pero vivo en una cocina de verdad con una licuadora de verdad, no en una botica. Mi regla: si un remedio toma más de cinco minutos o seis ingredientes, no lo voy a preparar una segunda vez — así que esa es la vara para todo lo que publico."
     },
     image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=1000",
     content: {
-      introduction: "Turmeric and ginger have been paired in traditional herbal medicine for centuries, long before \"anti-inflammatory\" was a wellness buzzword. I started making this tonic during a particularly rough cold season, and it's quietly become the one ritual I never skip — mostly because it takes less time than waiting for my coffee to brew.",
+      introduction: "La cúrcuma y el jengibre se han combinado en la herbolaria tradicional durante siglos, mucho antes de que \"antiinflamatorio\" fuera una palabra de moda en el bienestar. Empecé a preparar este tónico durante una temporada de resfriados particularmente dura, y se ha vuelto, en silencio, el único ritual que nunca me salto — sobre todo porque toma menos tiempo del que tarda en prepararse mi café.",
       sections: [
         {
-          heading: "1. The Base: Fresh Root, Not Just Powder 🌱",
+          heading: "1. La Base: Raíz Fresca, No Solo en Polvo 🌱",
           body: [
-            "I use a thumb-sized piece of fresh turmeric root and a similar amount of ginger, grated straight into a small pot of water. Powder works in a pinch, but fresh root gives a noticeably brighter, less dusty flavor — and it's what traditional preparations actually call for.",
-            "I let it simmer gently for about 8-10 minutes. Any longer and the ginger turns bitter; any shorter and it tastes like warm water with regrets."
+            "Uso un trozo de raíz de cúrcuma fresca del tamaño de un dedo pulgar y una cantidad similar de jengibre, rallados directamente en una olla pequeña con agua. El polvo funciona en caso de apuro, pero la raíz fresca da un sabor notablemente más vivo y menos terroso — y es lo que de verdad pide la preparación tradicional.",
+            "Lo dejo hervir a fuego suave unos 8-10 minutos. Más tiempo y el jengibre se vuelve amargo; menos tiempo y sabe a agua tibia con arrepentimientos."
           ],
-          tip: "Add a crack of black pepper at the end — the piperine in it measurably increases how much curcumin (turmeric's active compound) your body actually absorbs. This single tweak is the difference between 'nice tea' and the tonic actually doing something."
+          tip: "Agrega un poco de pimienta negra molida al final — la piperina que contiene aumenta de forma medible cuánta curcumina (el compuesto activo de la cúrcuma) absorbe tu cuerpo. Este simple truco es la diferencia entre 'un té agradable' y que el tónico realmente aporte algo."
         },
         {
-          heading: "2. A Spoon of Raw Honey, Off the Heat",
+          heading: "2. Una Cucharada de Miel Cruda, Fuera del Fuego",
           body: [
-            "I stir honey in only after straining and removing the pot from heat — boiling honey breaks down some of its natural enzymes, so adding it at the end keeps more of its soothing properties intact for sore throats."
+            "Agrego la miel solo después de colar y retirar la olla del fuego — hervir la miel descompone parte de sus enzimas naturales, así que añadirla al final conserva mejor sus propiedades calmantes para la garganta irritada."
           ]
         },
         {
-          heading: "3. Batch It Once, Drink It All Week",
+          heading: "3. Prepáralo una Vez, Tómalo Toda la Semana",
           body: [
-            "On Sundays I make a concentrated version — double the root, half the water — and keep it in the fridge. Each morning I just dilute a splash with hot water instead of grating everything from scratch daily."
+            "Los domingos preparo una versión concentrada — el doble de raíz, la mitad de agua — y la guardo en la nevera. Cada mañana solo diluyo un poco con agua caliente en vez de rallar todo desde cero cada día."
           ]
         }
       ],
-      conclusion: "This isn't a cure for anything, and I'm not pretending it replaces a real diet or sleep. But as a five-minute ritual rooted in genuinely old herbal practice, it's earned a permanent spot on my stove — and my immune system hasn't complained either."
+      conclusion: "Esto no soluciona nada por sí solo, y no pretendo que sustituya una buena alimentación o el descanso. Pero como ritual de cinco minutos basado en una práctica herbal genuinamente antigua, se ha ganado un lugar permanente en mi estufa — y mis defensas tampoco se han quejado."
     },
     recommendations: [
       {
         id: "rec-5",
-        name: "Organic Fresh Turmeric & Ginger Root Combo Pack",
-        description: "Having both roots on hand without a weekly produce-aisle hunt is the only reason I still make this consistently. Keeps well in the fridge for the whole batch-cooking week.",
+        name: "Combo Orgánico de Raíz Fresca de Cúrcuma y Jengibre",
+        description: "Tener ambas raíces a la mano sin la cacería semanal en la sección de frutas y verduras es la única razón por la que sigo preparando esto con constancia. Se conserva bien en la nevera toda la semana.",
         priceEstimate: "$18.99",
         rating: 4.7,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE5?tag=your-affiliate-tag-20",
-        badge: "Weekly Staple"
+        badge: "Básico de la Semana"
       },
       {
         id: "rec-6",
-        name: "Fine Microplane Grater for Roots & Spices",
-        description: "A regular grater turned this into a 15-minute chore. This one shreds the root in seconds and is genuinely dishwasher-safe, which matters more than I expected on a Monday morning.",
+        name: "Rallador Fino Microplane para Raíces y Especias",
+        description: "Un rallador normal convertía esto en una tarea de 15 minutos. Este ralla la raíz en segundos y de verdad se puede lavar en el lavaplatos, lo cual importa más de lo que esperaba un lunes por la mañana.",
         priceEstimate: "$14.50",
         rating: 4.8,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE6?tag=your-affiliate-tag-20"
@@ -246,57 +260,58 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    slug: "natural-post-workout-recovery-herbs",
-    title: "I Swapped My Ibuprofen Habit for These 3 Plant-Based Recovery Tricks",
-    excerpt: "Three practical, low-effort swaps rooted in traditional phytotherapy that actually changed how sore I feel the day after training.",
-    category: "Active Recovery 🏃",
-    readTime: "5 min read",
-    publishedAt: "October 2026",
+    slug: "plantas-recuperacion-postentreno",
+    lang: "es",
+    title: "Cambié mi Hábito del Ibuprofeno por Estos 3 Trucos de Recuperación con Plantas",
+    excerpt: "Tres cambios prácticos y sencillos, basados en la fitoterapia tradicional, que de verdad cambiaron qué tan adolorido me siento el día después de entrenar.",
+    category: "Recuperación Activa 🏃",
+    readTime: "5 min de lectura",
+    publishedAt: "Octubre 2026",
     author: {
       name: "Marcus Oyelaran",
-      role: "Strength Coach & Natural Recovery Writer",
-      bio: "I coach lifters for a living and used to reach for ibuprofen like it was a pre-workout supplement. A nagging stomach issue forced me to find other ways to manage soreness — these are the three that actually stuck, backed by both old herbal practice and the newer research on them."
+      role: "Entrenador de Fuerza y Escritor de Recuperación Natural",
+      bio: "Entreno a levantadores de pesas para vivir, y antes tomaba ibuprofeno como si fuera un suplemento pre-entreno. Un problema de estómago persistente me obligó a buscar otras formas de manejar el dolor muscular — estos son los tres que de verdad se quedaron, respaldados tanto por la práctica herbal antigua como por la investigación más reciente sobre ellos."
     },
     image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000",
     content: {
-      introduction: "Popping ibuprofen after every leg day felt normal for years, until it wasn't doing my stomach any favors. Turns out a few plant-based tools — some used in traditional medicine for centuries, now with actual research behind them — cover a surprising amount of what I was using painkillers for.",
+      introduction: "Tomarme un ibuprofeno después de cada día de pierna se sintió normal durante años, hasta que mi estómago empezó a pagar las consecuencias. Resulta que unas pocas herramientas vegetales — algunas usadas en la medicina tradicional durante siglos, hoy respaldadas por investigación real — cubren una sorprendente parte de lo que yo usaba analgésicos para lograr.",
       sections: [
         {
-          heading: "1. Topical Arnica Montana Gel for Localized Soreness",
+          heading: "1. Gel Tópico de Árnica Montana para el Dolor Localizado",
           body: [
-            "Arnica has been used topically in European folk medicine for bruising and muscle pain for generations. I rub it into whatever muscle group took the worst beating within an hour of training, and the next-day stiffness is noticeably less sharp — especially on heavy lower-body days."
+            "El árnica se ha usado de forma tópica en la medicina popular europea para golpes y dolor muscular durante generaciones. Me la aplico en el grupo muscular que más sufrió dentro de la hora siguiente al entreno, y la rigidez del día siguiente es notablemente menos intensa — sobre todo en los días pesados de piernas."
           ],
-          tip: "Never take arnica orally unless it's a diluted homeopathic prep made for that — the raw plant is for topical use only."
+          tip: "Nunca tomes árnica por vía oral a menos que sea una preparación homeopática diluida hecha para eso — la planta cruda es solo para uso tópico."
         },
         {
-          heading: "2. Tart Cherry Extract the Night Before a Hard Session",
+          heading: "2. Extracto de Cereza Ácida la Noche Antes de una Sesión Dura",
           body: [
-            "Tart cherries are naturally high in anthocyanins, and a concentrate taken the evening before an intense session has made my soreness the following day feel noticeably more manageable — this is one of the few folk remedies with a decent stack of actual sports-science studies behind it."
+            "Las cerezas ácidas tienen naturalmente un alto contenido de antocianinas, y un concentrado tomado la noche antes de una sesión intensa ha hecho que el dolor del día siguiente se sienta notablemente más llevadero — este es uno de los pocos remedios populares que cuenta con un buen número de estudios de ciencia del deporte detrás."
           ]
         },
         {
-          heading: "3. A Warm Magnesium & Lavender Soak",
+          heading: "3. Un Baño Tibio de Magnesio y Lavanda",
           body: [
-            "Twenty minutes in a warm bath with magnesium flakes and a few drops of lavender oil has become my non-negotiable Sunday ritual after a heavy training week. Whether it's the magnesium, the warmth, or just forcing myself to sit still for once, my legs feel distinctly less wrecked by Monday."
+            "Veinte minutos en una tina tibia con copos de magnesio y unas gotas de aceite de lavanda se han vuelto mi ritual innegociable del domingo después de una semana pesada de entreno. Ya sea el magnesio, el calor, o simplemente obligarme a quedarme quieto por una vez, mis piernas se sienten claramente menos destrozadas para el lunes."
           ]
         }
       ],
-      conclusion: "None of this replaces proper programming, sleep, or a doctor's advice if something actually hurts versus just feeling worked. But trading my reflexive ibuprofen habit for these three plant-based tools has made recovery feel like something I'm actively doing, not just waiting out."
+      conclusion: "Nada de esto sustituye una buena planificación de entreno, el descanso, o la opinión de un médico si algo realmente duele y no solo se siente trabajado. Pero cambiar mi hábito reflejo del ibuprofeno por estas tres herramientas vegetales ha hecho que la recuperación se sienta como algo que hago activamente, no solo algo que espero que pase."
     },
     recommendations: [
       {
         id: "rec-7",
-        name: "Topical Arnica Montana Recovery Gel",
-        description: "This is the exact tube in my gym bag. A little goes a long way, and it doesn't leave the greasy residue some of the cheaper balms do.",
+        name: "Gel de Recuperación Tópico de Árnica Montana",
+        description: "Este es exactamente el tubo que tengo en mi maleta del gym. Con poco rinde mucho, y no deja ese residuo grasoso que sí dejan algunos bálsamos más baratos.",
         priceEstimate: "$12.99",
         rating: 4.6,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE7?tag=your-affiliate-tag-20",
-        badge: "Gym Bag Staple"
+        badge: "Básico de la Maleta del Gym"
       },
       {
         id: "rec-8",
-        name: "Concentrated Tart Cherry Extract Capsules",
-        description: "I take two of these the night before a heavy session. Easier to keep consistent than brewing tart cherry juice from concentrate every time.",
+        name: "Cápsulas Concentradas de Extracto de Cereza Ácida",
+        description: "Tomo dos de estas la noche antes de una sesión pesada. Es más fácil mantener la constancia que preparar jugo de cereza ácida desde el concentrado cada vez.",
         priceEstimate: "$22.00",
         rating: 4.5,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE8?tag=your-affiliate-tag-20"
@@ -304,92 +319,94 @@ export const ARTICLES: Article[] = [
     ]
   },
   {
-    slug: "chamomile-tea-after-meals-digestion",
-    title: "Why Chamomile Water After Meals Is My Favorite Secret for Heavy Stomachs",
-    excerpt: "The after-dinner ritual I stole straight from my grandmother's kitchen — a warm cup of chamomile that takes the heavy, bloated feeling away without any harsh antacids.",
-    category: "Digestive Rituals 🍵",
-    readTime: "4 min read",
-    publishedAt: "October 2026",
+    slug: "manzanilla-digestion",
+    lang: "es",
+    title: "Por Qué el Agua de Manzanilla Después de Comer Es Mi Secreto Favorito para la Pesadez de Estómago",
+    excerpt: "El ritual después de cenar que le robé directo a la cocina de mi abuela — una taza tibia de manzanilla que se lleva esa sensación de pesadez e inflamación sin antiácidos fuertes.",
+    category: "Rituales Digestivos 🍵",
+    readTime: "4 min de lectura",
+    publishedAt: "Octubre 2026",
     author: {
       name: "Sophia Vance",
-      role: "Holistic Living & Botanical Enthusiast",
-      bio: "I've been obsessed with herbal remedies since my grandmother's kitchen smelled like chamomile every winter."
+      role: "Vida Holística y Entusiasta de las Plantas",
+      bio: "Estoy obsesionada con los remedios de hierbas desde que la cocina de mi abuela olía a manzanilla cada invierno."
     },
     image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=1000",
     content: {
-      introduction: "We've all been there: you finish a big dinner and that heavy, sluggish feeling creeps in before you've even left the table. Instead of reaching for the antacids, I picked up a trick straight from my grandmother's kitchen — a warm cup of chamomile right after eating.",
+      introduction: "A todos nos ha pasado: terminas una cena abundante y esa sensación de pesadez y pereza se instala antes de que te levantes de la mesa. En vez de ir directo a los antiácidos, adopté un truco directo de la cocina de mi abuela — una taza tibia de manzanilla justo después de comer.",
       sections: [
         {
-          heading: "1. Why a Warm Cup Works So Well 🌼",
+          heading: "1. Por Qué una Taza Tibia Funciona Tan Bien 🌼",
           body: [
-            "Chamomile has been a go-to in grandmothers' kitchens for generations, and it's not just an old wives' tale — the warm infusion gently calms your stomach and helps your body process a heavy meal instead of just sitting there like a brick.",
-            "I started drinking it after dinner mostly out of curiosity, but a few weeks in I noticed I wasn't waking up feeling bloated anymore. Small change, surprisingly big difference."
+            "La manzanilla ha sido un básico en las cocinas de las abuelas por generaciones, y no es solo un cuento de abuela — la infusión tibia calma suavemente el estómago y ayuda al cuerpo a procesar una comida pesada en vez de dejarla ahí sentada como un ladrillo.",
+            "Empecé a tomarla después de cenar más por curiosidad, pero después de unas semanas noté que ya no me despertaba sintiéndome inflamada. Un cambio pequeño, una diferencia sorprendentemente grande."
           ],
-          tip: "Cover your mug while it steeps for 5 to 7 minutes — that keeps the good stuff from drifting off with the steam. Then sip it slowly about 15 minutes after you eat, not ice cold and not rushed."
+          tip: "Tapa tu taza mientras reposa de 5 a 7 minutos — así lo bueno no se escapa con el vapor. Luego tómala despacio, unos 15 minutos después de comer, ni helada ni de un solo trago."
         },
         {
-          heading: "2. Make It Part of Your Wind-Down, Not a Chore",
+          heading: "2. Hazla Parte de tu Momento de Calma, No una Obligación",
           body: [
-            "I keep a tin of loose chamomile right next to the kettle so there's zero excuse to skip it. It's become less of \"a remedy\" and more of a cozy five-minute pause at the end of dinner — which honestly might be half of why it works so well."
+            "Mantengo una lata de manzanilla suelta justo al lado de la tetera para que no haya excusa para saltármela. Se ha vuelto menos \"un remedio\" y más una pausa acogedora de cinco minutos al final de la cena — lo cual, honestamente, podría ser la mitad de la razón por la que funciona tan bien."
           ]
         }
       ],
-      conclusion: "This isn't going to undo a giant plate of pasta, and some nights even tea doesn't fully save me. But swapping the after-dinner antacid reach for a warm cup of chamomile has made heavy dinners so much easier to handle — and mornings noticeably lighter too."
+      conclusion: "Esto no va a deshacer un plato gigante de pasta, y algunas noches ni el té me salva del todo. Pero cambiar el antiácido después de cenar por una taza tibia de manzanilla ha hecho que las cenas pesadas sean mucho más fáciles de llevar — y las mañanas notablemente más ligeras también."
     },
     recommendations: [
       {
         id: "rec-9",
-        name: "Organic Whole Flower Chamomile Tin",
-        description: "This is the tin I keep parked right next to my kettle. Whole flowers instead of dust-in-a-bag, and the aroma alone makes the after-dinner ritual feel like an actual treat instead of a chore.",
+        name: "Lata de Flor Entera de Manzanilla Orgánica",
+        description: "Esta es la lata que tengo siempre al lado de la tetera. Flores enteras en vez de polvo en una bolsita, y solo el aroma hace que el ritual después de cenar se sienta como un gusto de verdad y no una obligación.",
         priceEstimate: "$14.99",
         rating: 4.8,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE-CHAMOMILE?tag=your-affiliate-tag-20",
-        badge: "Digestive Favorite"
+        badge: "Favorita para Digerir"
       }
     ]
   },
   {
-    slug: "garlic-traditional-herbal-remedies-blood-digestion",
-    title: "Why Traditional Herbalists Called Garlic 'The Kitchen Pharmacy'",
-    excerpt: "The kitchen staple my grandmother swore by for everything from a stuffy nose to a sluggish stomach — and the ridiculously simple way she actually used it.",
-    category: "Plant-Based Remedies 🧄",
-    readTime: "5 min read",
-    publishedAt: "October 2026",
+    slug: "ajo-remedio-tradicional",
+    lang: "es",
+    title: "Por Qué los Herbolarios Tradicionales Llamaban al Ajo 'La Farmacia de la Cocina'",
+    excerpt: "El básico de cocina que mi abuela juraba que servía para todo, desde la nariz tapada hasta el estómago pesado — y la forma ridículamente simple en que ella lo usaba.",
+    category: "Remedios con Plantas 🧄",
+    readTime: "5 min de lectura",
+    publishedAt: "Octubre 2026",
     author: {
       name: "Sophia Vance",
-      role: "Holistic Living & Botanical Enthusiast",
-      bio: "Exploring traditional herbal practices and translating classic remedies into simple daily routines for modern living."
+      role: "Vida Holística y Entusiasta de las Plantas",
+      bio: "Explorando prácticas herbales tradicionales y traduciendo remedios clásicos en rutinas diarias simples para la vida moderna."
     },
     image: "/images/garlic-elixir.jpg",
     content: {
-      introduction: "Long before pharmacies were on every corner, most households just reached for what was already in the kitchen. In my family, that meant garlic — my grandmother treated it like a cure-all, from a heavy stomach after dinner to the first sniffle of a cold. Turns out, traditional herbalists have leaned on it the exact same way for centuries.",
+      introduction: "Mucho antes de que hubiera una farmacia en cada esquina, la mayoría de los hogares simplemente recurría a lo que ya tenían en la cocina. En mi familia, eso significaba ajo — mi abuela lo trataba como el remedio para todo, desde un estómago pesado después de cenar hasta el primer estornudo de un resfriado. Resulta que los herbolarios tradicionales lo han usado exactamente igual durante siglos.",
       sections: [
         {
-          heading: "1. The Everyday Digestive Helper 🧄",
+          heading: "1. El Ayudante Digestivo de Todos los Días 🧄",
           body: [
-            "The trick is ridiculously simple: raw garlic, finely chopped, mixed straight into your food. No fancy prep, no capsules — just a clove worked into whatever you're already cooking.",
-            "My grandmother always said it \"wakes up\" a heavy stomach after a big meal, and whether that's old folklore or not, I notice a lot less of that sluggish, overfull feeling when I actually remember to add it."
+            "El truco es ridículamente simple: ajo crudo, picado fino, mezclado directo en la comida. Sin preparación elaborada, sin cápsulas — solo un diente incorporado a lo que ya estés cocinando.",
+            "Mi abuela siempre decía que \"despierta\" un estómago pesado después de una comida abundante, y sea folclor antiguo o no, noto mucho menos esa sensación de pesadez y llenura cuando de verdad me acuerdo de agregarlo."
           ],
-          tip: "Chop or crush your garlic and let it sit for about 10 minutes before eating — that little pause is apparently when it does its best work, according to how it's traditionally prepared."
+          tip: "Pica o machaca tu ajo y déjalo reposar unos 10 minutos antes de comerlo — esa pequeña pausa es, al parecer, cuando mejor actúa, según cómo se prepara tradicionalmente."
         },
         {
-          heading: "2. The Go-To for Scratchy Throats and Stuffy Noses",
+          heading: "2. El Recurso de Siempre para la Garganta Irritada y la Nariz Tapada",
           body: [
-            "Come cold season, a warm garlic broth was non-negotiable growing up. It won't replace a doctor's advice, but there's something genuinely comforting about a warm, savory broth when your chest feels tight and your nose won't stop running."
+            "En temporada de resfriados, un caldo tibio de ajo era innegociable cuando era niña. No sustituye la opinión de un médico, pero hay algo genuinamente reconfortante en un caldo tibio y sabroso cuando el pecho se siente apretado y la nariz no para de moquear."
           ]
         }
       ],
-      conclusion: "Science is still catching up to a lot of what grandmothers have known forever, but keeping a simple ingredient like garlic in daily rotation is such an easy way to borrow a little old-school wisdom — no pharmacy trip required."
+      conclusion: "La ciencia todavía está alcanzando mucho de lo que las abuelas han sabido desde siempre, pero mantener un ingrediente simple como el ajo en la rotación diaria es una forma muy fácil de tomar un poco de esa sabiduría de antes — sin necesidad de ir a la farmacia."
     },
     recommendations: [
       {
         id: "rec-garlic-1",
-        name: "Stainless Steel Garlic Press & Mincer",
-        description: "The easiest way to prepare fresh garlic for your daily cooking and remedies without the mess on your hands.",
+        name: "Prensa y Picador de Ajo de Acero Inoxidable",
+        description: "La forma más fácil de preparar ajo fresco para tu cocina diaria y tus remedios sin ensuciarte las manos.",
         priceEstimate: "$15.99",
         rating: 4.8,
         affiliateUrl: "https://amazon.com/dp/EXAMPLE-GARLIC?tag=your-affiliate-tag-20",
-        badge: "Kitchen Essential"
+        badge: "Esencial de Cocina"
       }
     ]
   }
